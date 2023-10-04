@@ -1,0 +1,68 @@
+.signup_layout {
+  background: linear-gradient(45deg, var(--primary) 0%, var(--secondary) 100%);
+  height: max(100%, 100vh);
+  padding: 0 150px 0 100px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: calc(50%);
+  z-index: -1;
+}
+.signup_layout_para {
+  text-align: left;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+.signup_layout p {
+  color: var(--white);
+}
+
+.signup_layout_content {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 30px;
+}
+
+.signup_layout_content img {
+  margin-right: 10px;
+}
+
+@media screen and (max-width: 1559px) {
+  .signup_layout {
+    padding: 0 100px 0 50px;
+  }
+}
+
+@media screen and (max-width: 1279px) {
+  .signup_layout_content img {
+    width: calc(20%);
+  }
+  .signup_layout {
+    padding: 0 50px;
+  }
+  .signup_layout_para {
+    font-size: 16px;
+  }
+}
+@media screen and (max-width: 1023px) {
+  .signup_layout_content {
+    flex-direction: column;
+  }
+  .signup_layout_content img {
+    display: block;
+    margin: 0 auto 15px;
+    width: calc(40%);
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .signup_layout {
+    position: relative;
+    top: -100px;
+    width: calc(100%);
+  }
+}
