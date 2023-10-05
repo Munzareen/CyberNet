@@ -1,0 +1,59 @@
+.signin_layout {
+  background-color: #9aa8f8;
+  display: flex;
+  height: max(100%, 100vh);
+  justify-content: flex-end;
+  overflow: hidden;
+  position: absolute;
+  right: 0;
+  top: 0;
+  width: calc(50%);
+  z-index: -1;
+}
+
+.signin_layout img {
+  object-position: left center;
+  object-fit: contain;
+  height: 100%;
+  width: auto;
+}
+
+.signin_content {
+  align-items: center;
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0;
+}
+
+.signin_content p {
+  cursor: pointer;
+}
+
+.signin_content .label {
+  display: inline;
+  margin-left: 10px;
+}
+
+@media screen and (max-width: 1023px) {
+  .signin_layout {
+    display: block;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  .signin_layout {
+    position: relative;
+    width: calc(100%);
+  }
+  .signin_content {
+    flex-direction: column-reverse;
+    align-items: flex-end;
+    position: relative;
+    padding: 0 0 30px;
+  }
+  .signin_content div {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+  }
+}

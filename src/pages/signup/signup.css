@@ -1,20 +1,7 @@
-.signup_content{
-    margin-top: 30px;
+.signup_content {
+  margin-top: 30px;
 }
 
-.signup_content span{
-    cursor: pointer;
-}
-
-.button_arrow{
-    position: absolute;
-    right: max(-380px, -30vw);
-    bottom: -120px;
-    width: min(380px, 30vw)
-}
-
-@media screen and (max-width: 1023px) {
-    .button_arrow{
-        display: none;
-    }
+.signup_content span {
+  cursor: pointer;
 }

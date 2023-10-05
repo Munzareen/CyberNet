@@ -1,12 +1,16 @@
 import React, { useState } from "react";
+
 import "./signup.css";
+
 import logo from "../../assets/icons/logoDark.svg";
+import arrow from '../../assets/icons/arrow.svg'
+
 import InputField from "../../components/form/inputField";
 import Button from "../../components/form/button";
-import { useNavigate } from "react-router-dom";
 import Footer from "../../components/layout/footer";
-import SigninLayout from "../../components/main/signup/layout";
-import arrow from '../../assets/icons/arrow.svg'
+import SignupLayout from "../../components/layout/signup-layout";
+
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
   const navigate = useNavigate();
@@ -31,8 +35,8 @@ const Signup = () => {
 
   return (
     <>
-      <section>
-        <SigninLayout />
+      <section className="page_section">
+        <SignupLayout />
         <div className="container">
           <img src={logo} alt="brand logo" />
           <h2>Sign up</h2>

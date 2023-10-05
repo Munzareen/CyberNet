@@ -21,14 +21,12 @@ a {
 }
 
 section {
-  padding: 100px 0;
+  padding: 100px 0 200px;
   position: relative;
 }
 
-.form {
-  margin: 30px 0;
-  width: calc(35%);
-  position: relative;
+.page_section {
+  padding-bottom:200px;
 }
 
 h1 {
@@ -48,6 +46,7 @@ h2 {
   font-weight: 600;
   line-height: 44px;
   letter-spacing: -0.72px;
+  margin: 50px 0 30px;
 }
 
 p {
@@ -64,9 +63,27 @@ span {
   font-weight: 600;
 }
 
+.form {
+  margin: 30px 0;
+  width: calc(35%);
+  position: relative;
+}
+
+.button_arrow {
+  position: absolute;
+  right: -380px;
+  bottom: -130px;
+}
+
+@media screen and (max-width: 1559px) {
+  .button_arrow {
+    right: max(-380px, -30vw);
+    width: min(380px, 30vw);
+  }
+}
 
 @media screen and (max-width: 1279px) {
-  h1{
+  h1 {
     font-size: 50px;
   }
   .container {
@@ -75,7 +92,7 @@ span {
 }
 
 @media screen and (max-width: 1023px) {
-  h1{
+  h1 {
     font-size: 35px;
     line-height: 50px;
   }
@@ -85,10 +102,13 @@ span {
   .form {
     width: calc(45%);
   }
+  .button_arrow {
+    bottom: -80px;
+  }
 }
 
 @media screen and (max-width: 767px) {
-  h1{
+  h1 {
     font-size: 30px;
     line-height: 50px;
   }
@@ -97,5 +117,8 @@ span {
   }
   .form {
     width: calc(100%);
+  }
+  .button_arrow {
+    display: none;
   }
 }

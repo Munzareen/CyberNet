@@ -1,0 +1,15 @@
+.company_details_arrow {
+  bottom: -200px;
+}
+
+@media screen and (max-width: 1279px) {
+  .company_details_arrow {
+    bottom: -180px;
+  }
+}
+
+@media screen and (max-width: 1023px) {
+  .company_details_arrow {
+    bottom: -150px;
+  }
+}

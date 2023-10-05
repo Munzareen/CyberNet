@@ -1,8 +1,8 @@
 import React from "react";
-import stars from "../../../../assets/icons/stars.svg";
-import "./layout.css";
+import stars from "../../../assets/icons/stars.svg";
+import "./signup-layout.css";
 
-const SigninLayout = () => {
+const SignupLayout = () => {
   return (
     <div className="signup_layout">
       <section>
@@ -14,7 +14,7 @@ const SigninLayout = () => {
         </p>
         <div className="signup_layout_content">
           <img
-            src={require("../../../../assets/images/brands.png")}
+            src={require("../../../assets/images/brands.png")}
             alt="trusted brands"
           />
           <p>1000+ companies who trust ILIR Cyberdefence</p>
@@ -24,4 +24,4 @@ const SigninLayout = () => {
   );
 };
 
-export default SigninLayout;
+export default SignupLayout;
