@@ -197,30 +197,7 @@ const AssessmentsOngoing = () => {
                     <p className="text-[#101828] text-4xl text-left font-bold font-inter">
                       481
                     </p>
-                    {/* <div className="flex justify-center items-center px-2 py-1 gap-1 bg-[#ECFDF3] rounded-full">
-                      <svg
-                        width="10"
-                        height="10"
-                        viewBox="0 0 10 10"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M5 8.5V1.5M5 1.5L1.5 5M5 1.5L8.5 5"
-                          stroke="#12B76A"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
-                      <p className="text-[#027A48] text-xs text-left font-medium font-inter">
-                        5%
-                      </p>
-                    </div> */}
                   </div>
-                  {/* <div className="rounded-full flex w-full h-2 bg-[#EAECF0]">
-                    <div className="rounded-full flex w-1/2 h-2 bg-[#3855F2]"></div>
-                  </div> */}
                 </div>
               </div>
               <div className="rounded-xl flex flex-row p-5 gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full justify-between">

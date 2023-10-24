@@ -12,7 +12,7 @@ import SuppIcon from "../icons/navIcons/SuppIcon";
 import SettingsIcon from "../icons/navIcons/SettingsIcon";
 import LogoutIcon from "../icons/navIcons/LogoutIcon";
 import "./Navbar.css";
-export default function Navbar() {
+export default function Navbar({ setIsOpen }) {
   return (
     <div className="l-main-nav min-h-screen w-[480px] flex flex-col justify-between bg-[#14143E] text-gray-50">
       <div className="flex flex-col justify-center pt-8 px-8 gap-3">
@@ -63,16 +63,15 @@ export default function Navbar() {
               Roadmaps
             </div>
           </NavLink>
-          <NavLink
-            to="/comments"
+          <button
+            onClick={() => setIsOpen(true)}
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
-            activeClassName="active"
           >
             <CommentsIcon />
             <div className="font-inter font-medium text-base leading-6 text-gray-100">
               Comments
             </div>
-          </NavLink>
+          </button>
           <NavLink
             to="/user-manuals"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"

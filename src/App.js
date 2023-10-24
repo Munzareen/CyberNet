@@ -7,13 +7,20 @@ import CompanyDetails from "./pages/companyDetails";
 import Assessments from "./pages/assessments";
 import AuthRoutes from "./routes/AuthRoutes";
 import AssessmentsOngoing from "./pages/assessmentsOngoing";
+import React from "react";
+import { useState } from "react";
 function App() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <div className="App">
       <Routes>
         {/* <Route element={<AuthRoutes />}> */}
         <Route path="/" element={<Home />} />
-        <Route path="/assessments" element={<Assessments />} />
+        <Route
+          path="/assessments"
+          element={<Assessments isOpen={isOpen} setIsOpen={setIsOpen} />}
+        />
         <Route path="/assessments/ongoing" element={<AssessmentsOngoing />} />
 
         {/* </Route> */}

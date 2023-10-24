@@ -2,11 +2,12 @@ import React from "react";
 import "./assessments.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
-
-const Assessments = () => {
+import Drawer from "../../components/drawer/Drawer";
+import { useState } from "react";
+const Assessments = ({ isOpen, setIsOpen }) => {
   return (
     <div className="flex">
-      <Navbar></Navbar>
+      <Navbar setIsOpen={setIsOpen}></Navbar>
       <div className="r-assessments-initial bg-[#14143E] pt-4 w-full">
         <div className="bg-white rounded-tl-3xl py-4 px-8 h-full flex flex-col">
           {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
@@ -46,6 +47,7 @@ const Assessments = () => {
           </div>
         </div>
       </div>
+      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}></Drawer>
     </div>
   );
 };
