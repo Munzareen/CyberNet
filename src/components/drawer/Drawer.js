@@ -1,8 +1,12 @@
 import React from "react";
 import Comment from "./Comment";
 import { useState } from "react";
-export default function Drawer({ children, isOpen, setIsOpen }) {
+import { MyContext } from "../../MyContext";
+import { useContext } from "react";
+
+export default function Drawer({ children }) {
   const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
+  const { isOpen, setIsOpen } = useContext(MyContext);
 
   return (
     <main

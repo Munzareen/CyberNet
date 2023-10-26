@@ -11,8 +11,13 @@ import NotiIcon from "../icons/navIcons/NotiIcon";
 import SuppIcon from "../icons/navIcons/SuppIcon";
 import SettingsIcon from "../icons/navIcons/SettingsIcon";
 import LogoutIcon from "../icons/navIcons/LogoutIcon";
+import { MyContext } from "../../MyContext";
 import "./Navbar.css";
-export default function Navbar({ setIsOpen }) {
+import { useContext } from "react";
+
+export default function Navbar() {
+  const { setIsOpen } = useContext(MyContext);
+
   return (
     <div className="l-main-nav min-h-screen w-[480px] flex flex-col justify-between bg-[#14143E] text-gray-50">
       <div className="flex flex-col justify-center pt-8 px-8 gap-3">

@@ -7,28 +7,32 @@ import CompanyDetails from "./pages/companyDetails";
 import Assessments from "./pages/assessments";
 import AuthRoutes from "./routes/AuthRoutes";
 import AssessmentsOngoing from "./pages/assessmentsOngoing";
+import Roadmaps from "./pages/roadmaps";
 import React from "react";
 import { useState } from "react";
+import { MyContext } from "./MyContext";
+
 function App() {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
-    <div className="App">
-      <Routes>
-        {/* <Route element={<AuthRoutes />}> */}
-        <Route path="/" element={<Home />} />
-        <Route
-          path="/assessments"
-          element={<Assessments isOpen={isOpen} setIsOpen={setIsOpen} />}
-        />
-        <Route path="/assessments/ongoing" element={<AssessmentsOngoing />} />
+    <MyContext.Provider value={{ isOpen, setIsOpen }}>
+      <div className="App">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route
+            path="/assessments"
+            element={<Assessments isOpen={isOpen} setIsOpen={setIsOpen} />}
+          />
+          <Route path="/assessments/ongoing" element={<AssessmentsOngoing />} />
+          <Route path="/roadmaps" element={<Roadmaps />} />
 
-        {/* </Route> */}
-        <Route path="/signin" element={<Signin />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/company-details" element={<CompanyDetails />} />
-      </Routes>
-    </div>
+          <Route path="/signin" element={<Signin />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/company-details" element={<CompanyDetails />} />
+        </Routes>
+      </div>
+    </MyContext.Provider>
   );
 }
 

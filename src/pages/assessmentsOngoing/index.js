@@ -1,6 +1,7 @@
 import React from "react";
 import "./AssessmentsOngoing.css";
 import Navbar from "../../components/Navbar/Navbar";
+import Drawer from "../../components/drawer/Drawer";
 
 const AssessmentsOngoing = () => {
   return (
@@ -273,6 +274,7 @@ const AssessmentsOngoing = () => {
           </div>
         </div>
       </div>
+      <Drawer></Drawer>
     </div>
   );
 };

@@ -7,7 +7,7 @@ import { useState } from "react";
 const Assessments = ({ isOpen, setIsOpen }) => {
   return (
     <div className="flex">
-      <Navbar setIsOpen={setIsOpen}></Navbar>
+      <Navbar></Navbar>
       <div className="r-assessments-initial bg-[#14143E] pt-4 w-full">
         <div className="bg-white rounded-tl-3xl py-4 px-8 h-full flex flex-col">
           {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
@@ -47,7 +47,7 @@ const Assessments = ({ isOpen, setIsOpen }) => {
           </div>
         </div>
       </div>
-      <Drawer isOpen={isOpen} setIsOpen={setIsOpen}></Drawer>
+      <Drawer></Drawer>
     </div>
   );
 };
