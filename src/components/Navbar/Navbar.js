@@ -31,7 +31,7 @@ export default function Navbar() {
             </div>
             <input
               type="text"
-              className="w-full rounded-lg bg-[#475467] text-gray-100 font-inter font-medium text-base leading-6 focus:outline-none"
+              className="w-full bg-[#475467] text-gray-100 font-inter font-medium text-base leading-6 focus:outline-none"
               placeholder="Search"
             />
           </div>
@@ -39,7 +39,7 @@ export default function Navbar() {
         <div className="top-nav flex flex-col gap-2">
           <NavLink
             exact
-            to="/"
+            to="/dashboard/home"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -49,7 +49,7 @@ export default function Navbar() {
             </div>
           </NavLink>
           <NavLink
-            to="/assessments"
+            to="/dashboard/assessments"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -59,7 +59,7 @@ export default function Navbar() {
             </div>
           </NavLink>
           <NavLink
-            to="/roadmaps"
+            to="/dashboard/roadmaps"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -78,7 +78,7 @@ export default function Navbar() {
             </div>
           </button>
           <NavLink
-            to="/user-manuals"
+            to="/dashboard/user-manuals"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -92,7 +92,7 @@ export default function Navbar() {
       <div className="nav-bottom flex flex-col justify-center pb-8 px-8 gap-3">
         <div className="flex flex-col gap-2">
           <NavLink
-            to="/notifications"
+            to="/dashboard/notifications"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -102,7 +102,7 @@ export default function Navbar() {
             </div>
           </NavLink>
           <NavLink
-            to="/support"
+            to="/dashboard/support"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -112,7 +112,7 @@ export default function Navbar() {
             </div>
           </NavLink>
           <NavLink
-            to="/settings"
+            to="/dashboard/settings"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
