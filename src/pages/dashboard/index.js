@@ -4,6 +4,7 @@ import Drawer from "../../components/drawer/Drawer";
 import DonutChart from "./components/DonutChart";
 import LineChart from "./components/LineChart";
 import HalfDonutChart from "./components/HalfDonutChart";
+import StackedBarChart from "./components/StackedBarChart";
 
 const Dashboard = () => {
   return (
@@ -187,11 +188,24 @@ const Dashboard = () => {
             </div>
             <div className="flex justify-center h-[450px] w-full gap-4">
               <div className="w-full flex flex-col rounded-xl p-5 gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
-                <div className="mt-2">
+                <div className="mt-2 flex justify-between">
                   <p className="text-[#101828] text-lg font-semibold font-inter text-left">
                     Maturity over time
                   </p>
-                  <div></div>
+                  <div className="border-[#D0D5DD] border rounded-lg">
+                    <button className="bg-[#F9FAFB] py-2 px-4 text-center text-sm font-semibold font-inter text-[#1D2939]">
+                      1 yr
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#344054] border-l border-[#D0D5DD]">
+                      30d
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#344054] border-l border-[#D0D5DD]">
+                      7d
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#344054] border-l border-[#D0D5DD]">
+                      24h
+                    </button>
+                  </div>
                 </div>
                 <div className="h-80 w-full flex justify-left">
                   <LineChart />
@@ -211,6 +225,68 @@ const Dashboard = () => {
                   </p>
                 </div>
                 <HalfDonutChart />
+              </div>
+            </div>
+            <div className="rounded-xl flex justify-center w-full gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
+              <div className="w-full flex flex-col rounded-xl p-5 gap-3 items-center">
+                <div className="w-full">
+                  <p className="text-[#101828] text-lg font-semibold font-inter text-left">
+                    Comparison score
+                  </p>
+                </div>
+                <StackedBarChart />
+              </div>
+            </div>
+            <div className="rounded-xl flex gap-4 p-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
+              <div className="flex flex-col gap-4 w-full">
+                <p className="text-[#101828] text-lg font-semibold font-inter text-left">
+                  Action items
+                </p>
+                <div className="flex">
+                  <div className="border-[#D0D5DD] border rounded-lg flex">
+                    <button className="rounded-lg bg-[#fff7f7] py-2 px-4 text-center text-sm font-semibold font-inter text-[#F23838]">
+                      Highest priority
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#F27B38] border-l border-[#D0D5DD]">
+                      High priority
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#C238F2] border-l border-[#D0D5DD]">
+                      Low priority
+                    </button>
+                    <button className="py-2 px-4 text-center text-sm font-semibold font-inter text-[#06CA02] border-l border-[#D0D5DD]">
+                      Lowest priority
+                    </button>
+                  </div>
+                </div>
+                <div className="flex flex-col gap-3">
+                  <div className="bg-[#F9FAFB] rounded-lg p-3">
+                    <p className="text-[#101828] text-sm font-medium font-inter text-left">
+                      Goal oriented audition preparing for the job seeker. Is a
+                      community driven blind audition platform a place{" "}
+                    </p>
+                  </div>
+                  <div className="bg-[#F9FAFB] rounded-lg p-3">
+                    <p className="text-[#101828] text-sm font-medium font-inter text-left">
+                      Goal oriented audition preparing for the job seeker. Is a
+                      community driven blind audition platform a place{" "}
+                    </p>
+                  </div>
+                  <div className="bg-[#F9FAFB] rounded-lg p-3">
+                    <p className="text-[#101828] text-sm font-medium font-inter text-left">
+                      Goal oriented audition preparing for the job seeker. Is a
+                      community driven blind audition platform a place{" "}
+                    </p>
+                  </div>
+                  <div className="bg-[#F9FAFB] rounded-lg p-3">
+                    <p className="text-[#101828] text-sm font-medium font-inter text-left">
+                      Goal oriented audition preparing for the job seeker. Is a
+                      community driven blind audition platform a place{" "}
+                    </p>
+                  </div>
+                  <button className="mt-4 py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter">
+                    View All
+                  </button>
+                </div>
               </div>
             </div>
           </div>

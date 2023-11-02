@@ -1,19 +1,18 @@
 import React from "react";
-import Comment from "./Comment";
+import SupportComment from "./SupportComment";
 import { useState } from "react";
 import { MyContext } from "../../MyContext";
 import { useContext } from "react";
 
-export default function Drawer({ children }) {
+export default function SupportDrawer({ children }) {
   const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
-  const { isOpen, setIsOpen } = useContext(MyContext);
   const { isSupportOpen, setIsSupportOpen } = useContext(MyContext);
 
   return (
     <main
       className={
         " fixed overflow-hidden z-10 bg-gray-900 bg-opacity-25 inset-0 transform ease-in-out flex" +
-        (isOpen
+        (isSupportOpen
           ? " transition-opacity opacity-100 duration-500 translate-x-0  "
           : " transition-all delay-500 opacity-0 translate-x-full  ")
       }
@@ -21,7 +20,7 @@ export default function Drawer({ children }) {
       <section
         className="h-full flex-grow"
         onClick={() => {
-          setIsOpen(false);
+          setIsSupportOpen(false);
           setTimeout(() => {
             setViewCommentsFlag(true);
           }, 300);
@@ -30,7 +29,7 @@ export default function Drawer({ children }) {
       <section
         className={
           "w-screen max-w-lg right-0 absolute bg-white h-full shadow-xl delay-400 duration-500 ease-in-out transition-all transform flex p-0" +
-          (isOpen ? " translate-x-0 " : " translate-x-full ")
+          (isSupportOpen ? " translate-x-0 " : " translate-x-full ")
         }
       >
         <article className="flex-grow relative flex flex-col overflow-y-scroll h-screen">
@@ -39,11 +38,11 @@ export default function Drawer({ children }) {
               <>
                 <div className="border-b-2 border-gray-300 flex justify-between px-8 py-5 items-center">
                   <p className="text-[#101828] text-2xl font-semibold font-inter">
-                    Comments
+                    Support
                   </p>
                   <button
                     onClick={() => {
-                      setIsOpen(false);
+                      setIsSupportOpen(false);
                       setTimeout(() => {
                         setViewCommentsFlag(true);
                       }, 300);
@@ -84,12 +83,7 @@ export default function Drawer({ children }) {
                     <div className="">
                       <div className="flex justify-between">
                         <div className="text-lg font-inter font-semibold text-[#101828]">
-                          Question 1
-                        </div>
-                        <div className="bg-[#F2F4F7] rounded-full">
-                          <p className="text-xm font-inter font-medium text-[#3855F2] px-2 py-1">
-                            4 New Comments
-                          </p>
+                          Update on new version
                         </div>
                       </div>
                       <div className="font-inter font-medium text-[#475467] text-sm">
@@ -135,12 +129,12 @@ export default function Drawer({ children }) {
                       </svg>
                     </button>
                     <p className="text-[#101828] text-2xl font-semibold font-inter">
-                      Question 1
+                      System reply on question
                     </p>
                   </div>
                   <button
                     onClick={() => {
-                      setIsOpen(false);
+                      setIsSupportOpen(false);
                       setTimeout(() => {
                         setViewCommentsFlag(true);
                       }, 300);
@@ -166,20 +160,7 @@ export default function Drawer({ children }) {
                 </div>
                 <div className="flex flex-col justify-between px-8 gap-10">
                   <div className="flex flex-col flex-grow gap-5 pt-5">
-                    <Comment />
-                    <Comment />
-                    <Comment />
-                  </div>
-                  <div className="">
-                    <div className="flex flex-col gap-3">
-                      <textarea
-                        className="border-[#D0D5DD] border font-inter font-medium text-[#475467] text-sm w-full h-20 rounded-lg p-3 outline-none"
-                        placeholder="Enter your comment here"
-                      ></textarea>
-                      <button className="py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter w-24">
-                        Send
-                      </button>
-                    </div>
+                    <SupportComment />
                   </div>
                 </div>
               </>
@@ -192,7 +173,7 @@ export default function Drawer({ children }) {
       {/* <section
         className=" w-screen h-full cursor-pointer "
         onClick={() => {
-          setIsOpen(false);
+          setIsSupportOpen(false);
         }}
       ></section> */}
     </main>

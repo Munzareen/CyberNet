@@ -46,7 +46,7 @@ export default function Comment() {
             <div className="flex flex-col gap-3">
               <textarea
                 className="border-[#D0D5DD] border font-inter font-medium text-[#475467] text-sm w-full h-20 rounded-lg p-3 outline-none"
-                placeholder="Enter your comment here"
+                placeholder="Enter your reply here"
               ></textarea>
               <button className="py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter w-24">
                 Send

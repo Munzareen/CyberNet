@@ -1,6 +1,7 @@
 import React from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Drawer from "../../components/drawer/Drawer";
+import AssignDropdown from "../../components/dropdown/AssignDropdown";
 
 const AssessOngoingExample = () => {
   return (
@@ -78,56 +79,32 @@ const AssessOngoingExample = () => {
             <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
               <div className="flex flex-col gap-6">
                 <div className="flex justify-between">
-                  <p className="text-[#101828] text-lg font-semibold font-inter text-left">
-                    1 . The IT and OT assets inventory attributes cybersecurity
-                    activities for example location assets parity system and
-                    formwork.
-                  </p>
-                  <div className="flex gap-4 pt-[6px]">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      width="4"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.00002 8.83325C2.46026 8.83325 2.83335 8.46016 2.83335 7.99992C2.83335 7.53968 2.46026 7.16659 2.00002 7.16659C1.53978 7.16659 1.16669 7.53968 1.16669 7.99992C1.16669 8.46016 1.53978 8.83325 2.00002 8.83325Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 2.99992C2.46026 2.99992 2.83335 2.62682 2.83335 2.16659C2.83335 1.70635 2.46026 1.33325 2.00002 1.33325C1.53978 1.33325 1.16669 1.70635 1.16669 2.16659C1.16669 2.62682 1.53978 2.99992 2.00002 2.99992Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 14.6666C2.46026 14.6666 2.83335 14.2935 2.83335 13.8333C2.83335 13.373 2.46026 12.9999 2.00002 12.9999C1.53978 12.9999 1.16669 13.373 1.16669 13.8333C1.16669 14.2935 1.53978 14.6666 2.00002 14.6666Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                  <div className="flex">
+                    <p className="text-[#101828] text-lg font-semibold font-inter text-left">
+                      1 . The IT and OT assets inventory attributes
+                      cybersecurity activities for example location assets
+                      parity system and formwork.
+                    </p>
+                  </div>
+                  <div className="flex gap-2 pt-2 items-center h-6">
+                    <div>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                          stroke="#98A2B3"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <AssignDropdown />
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -157,214 +134,32 @@ const AssessOngoingExample = () => {
             <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
               <div className="flex flex-col gap-6">
                 <div className="flex justify-between">
-                  <p className="text-[#101828] text-lg font-semibold font-inter text-left">
-                    1 . The IT and OT assets inventory attributes cybersecurity
-                    activities for example location assets parity system and
-                    formwork.
-                  </p>
-                  <div className="flex gap-4 pt-[6px]">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      width="4"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.00002 8.83325C2.46026 8.83325 2.83335 8.46016 2.83335 7.99992C2.83335 7.53968 2.46026 7.16659 2.00002 7.16659C1.53978 7.16659 1.16669 7.53968 1.16669 7.99992C1.16669 8.46016 1.53978 8.83325 2.00002 8.83325Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 2.99992C2.46026 2.99992 2.83335 2.62682 2.83335 2.16659C2.83335 1.70635 2.46026 1.33325 2.00002 1.33325C1.53978 1.33325 1.16669 1.70635 1.16669 2.16659C1.16669 2.62682 1.53978 2.99992 2.00002 2.99992Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 14.6666C2.46026 14.6666 2.83335 14.2935 2.83335 13.8333C2.83335 13.373 2.46026 12.9999 2.00002 12.9999C1.53978 12.9999 1.16669 13.373 1.16669 13.8333C1.16669 14.2935 1.53978 14.6666 2.00002 14.6666Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Not implemented
+                  <div className="flex">
+                    <p className="text-[#101828] text-lg font-semibold font-inter text-left">
+                      1 . The IT and OT assets inventory attributes
+                      cybersecurity activities for example location assets
+                      parity system and formwork.
                     </p>
                   </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Partially implemented
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD] bg-[#ECF1FD]">
-                    <p className="text-[#3855F2] text-sm font-semibold font-inter">
-                      Largely implemented
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Fully implemented
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
-              <div className="flex flex-col gap-6">
-                <div className="flex justify-between">
-                  <p className="text-[#101828] text-lg font-semibold font-inter text-left">
-                    1 . The IT and OT assets inventory attributes cybersecurity
-                    activities for example location assets parity system and
-                    formwork.
-                  </p>
-                  <div className="flex gap-4 pt-[6px]">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      width="4"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.00002 8.83325C2.46026 8.83325 2.83335 8.46016 2.83335 7.99992C2.83335 7.53968 2.46026 7.16659 2.00002 7.16659C1.53978 7.16659 1.16669 7.53968 1.16669 7.99992C1.16669 8.46016 1.53978 8.83325 2.00002 8.83325Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 2.99992C2.46026 2.99992 2.83335 2.62682 2.83335 2.16659C2.83335 1.70635 2.46026 1.33325 2.00002 1.33325C1.53978 1.33325 1.16669 1.70635 1.16669 2.16659C1.16669 2.62682 1.53978 2.99992 2.00002 2.99992Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 14.6666C2.46026 14.6666 2.83335 14.2935 2.83335 13.8333C2.83335 13.373 2.46026 12.9999 2.00002 12.9999C1.53978 12.9999 1.16669 13.373 1.16669 13.8333C1.16669 14.2935 1.53978 14.6666 2.00002 14.6666Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Not implemented
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Partially implemented
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD] bg-[#ECF1FD]">
-                    <p className="text-[#3855F2] text-sm font-semibold font-inter">
-                      Largely implemented
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-sm font-semibold font-inter">
-                      Fully implemented
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
-              <div className="flex flex-col gap-6">
-                <div className="flex justify-between">
-                  <p className="text-[#101828] text-lg font-semibold font-inter text-left">
-                    1 . The IT and OT assets inventory attributes cybersecurity
-                    activities for example location assets parity system and
-                    formwork.
-                  </p>
-                  <div className="flex gap-4 pt-[6px]">
-                    <svg
-                      width="16"
-                      height="16"
-                      viewBox="0 0 16 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
-                    <svg
-                      width="4"
-                      height="16"
-                      viewBox="0 0 4 16"
-                      fill="none"
-                      xmlns="http://www.w3.org/2000/svg"
-                    >
-                      <path
-                        d="M2.00002 8.83325C2.46026 8.83325 2.83335 8.46016 2.83335 7.99992C2.83335 7.53968 2.46026 7.16659 2.00002 7.16659C1.53978 7.16659 1.16669 7.53968 1.16669 7.99992C1.16669 8.46016 1.53978 8.83325 2.00002 8.83325Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 2.99992C2.46026 2.99992 2.83335 2.62682 2.83335 2.16659C2.83335 1.70635 2.46026 1.33325 2.00002 1.33325C1.53978 1.33325 1.16669 1.70635 1.16669 2.16659C1.16669 2.62682 1.53978 2.99992 2.00002 2.99992Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                      <path
-                        d="M2.00002 14.6666C2.46026 14.6666 2.83335 14.2935 2.83335 13.8333C2.83335 13.373 2.46026 12.9999 2.00002 12.9999C1.53978 12.9999 1.16669 13.373 1.16669 13.8333C1.16669 14.2935 1.53978 14.6666 2.00002 14.6666Z"
-                        stroke="#98A2B3"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                      />
-                    </svg>
+                  <div className="flex gap-2 pt-2 items-center h-6">
+                    <div>
+                      <svg
+                        width="16"
+                        height="16"
+                        viewBox="0 0 16 16"
+                        fill="none"
+                        xmlns="http://www.w3.org/2000/svg"
+                      >
+                        <path
+                          d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
+                          stroke="#98A2B3"
+                          stroke-width="1.5"
+                          stroke-linecap="round"
+                          stroke-linejoin="round"
+                        />
+                      </svg>
+                    </div>
+                    <AssignDropdown />
                   </div>
                 </div>
                 <div className="flex gap-3">

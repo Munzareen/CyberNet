@@ -4,10 +4,12 @@ import { MyContext } from "../MyContext";
 import { useState } from "react";
 export default function RootLayout() {
   const [isOpen, setIsOpen] = useState(false);
-
+  const [isSupportOpen, setIsSupportOpen] = useState(false);
   return (
     <div>
-      <MyContext.Provider value={{ isOpen, setIsOpen }}>
+      <MyContext.Provider
+        value={{ isOpen, setIsOpen, isSupportOpen, setIsSupportOpen }}
+      >
         <Outlet />
       </MyContext.Provider>
     </div>

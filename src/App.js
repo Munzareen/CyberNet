@@ -17,6 +17,7 @@ import AssessOngoingExample from "./pages/assessOngoingExample";
 import Roadmaps from "./pages/roadmaps";
 import React from "react";
 import DashboardLayout from "./layouts/DashboardLayout";
+import AssessmentsCompleted from "./pages/assessmentsCompleted";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -30,6 +31,7 @@ const router = createBrowserRouter(
           <Route index element={<Assessments />} />
           <Route path="ongoing" element={<AssessmentsOngoing />} />
           <Route path="ongoing/example" element={<AssessOngoingExample />} />
+          <Route path="completed" element={<AssessmentsCompleted />} />
         </Route>
         <Route path="roadmaps" element={<Roadmaps />} />
       </Route>

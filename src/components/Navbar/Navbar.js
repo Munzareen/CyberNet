@@ -17,6 +17,7 @@ import { useContext } from "react";
 
 export default function Navbar() {
   const { setIsOpen } = useContext(MyContext);
+  const { setIsSupportOpen } = useContext(MyContext);
 
   return (
     <div className="l-main-nav min-h-screen w-[480px] flex flex-col justify-between bg-[#14143E] text-gray-50">
@@ -101,16 +102,16 @@ export default function Navbar() {
               Notifications
             </div>
           </NavLink>
-          <NavLink
-            to="/dashboard/support"
+          <button
+            onClick={() => setIsSupportOpen(true)}
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
-            activeClassName="active"
           >
             <SuppIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100 ">
+            <div className="font-inter font-medium text-base leading-6 text-gray-100">
               Support
             </div>
-          </NavLink>
+          </button>
+
           <NavLink
             to="/dashboard/settings"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"

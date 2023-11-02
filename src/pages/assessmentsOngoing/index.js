@@ -3,6 +3,7 @@ import "./AssessmentsOngoing.css";
 import Navbar from "../../components/Navbar/Navbar";
 import Drawer from "../../components/drawer/Drawer";
 import { Link } from "react-router-dom";
+import AssignDropdown from "../../components/dropdown/AssignDropdown";
 
 const AssessmentsOngoing = () => {
   return (
@@ -10,21 +11,27 @@ const AssessmentsOngoing = () => {
       <div className="bg-white rounded-tl-3xl py-4 h-full flex flex-col">
         {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
         <div className="my-5 flex flex-row gap-4 px-8">
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-base font-semibold font-inter">
-              New Assessments
-            </p>
-          </div>
-          <div className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
-            <p className="text-[#3855F2] text-base font-semibold font-inter">
-              Ongoing Assessments
-            </p>
-          </div>
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-base font-semibold font-inter">
-              Completed Assessments
-            </p>
-          </div>
+          <Link to="/dashboard/assessments">
+            <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
+              <p className="text-base font-semibold font-inter">
+                New Assessments
+              </p>
+            </div>
+          </Link>
+          <Link to="/dashboard/assessments/ongoing">
+            <div className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
+              <p className="text-[#3855F2] text-base font-semibold font-inter">
+                Ongoing Assessments
+              </p>
+            </div>
+          </Link>
+          <Link to="/dashboard/assessments/completed">
+            <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
+              <p className="text-base font-semibold font-inter">
+                Completed Assessments
+              </p>
+            </div>
+          </Link>
         </div>
         <div className="bg-[#F9F9F9] flex flex-col p-8 gap-3">
           <div className="text-[#101828] text-3xl font-bold font-inter">
@@ -58,35 +65,7 @@ const AssessmentsOngoing = () => {
             <p className="text-[#101828] text-lg text-left font-bold font-inter">
               Threat, Vulnerable Management (TVM)
             </p>
-            <svg
-              width="20"
-              height="20"
-              viewBox="0 0 20 20"
-              fill="none"
-              xmlns="http://www.w3.org/2000/svg"
-            >
-              <path
-                d="M10 10.8333C10.4603 10.8333 10.8334 10.4602 10.8334 9.99992C10.8334 9.53968 10.4603 9.16659 10 9.16659C9.53978 9.16659 9.16669 9.53968 9.16669 9.99992C9.16669 10.4602 9.53978 10.8333 10 10.8333Z"
-                stroke="#3855F2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10 4.99992C10.4603 4.99992 10.8334 4.62682 10.8334 4.16659C10.8334 3.70635 10.4603 3.33325 10 3.33325C9.53978 3.33325 9.16669 3.70635 9.16669 4.16659C9.16669 4.62682 9.53978 4.99992 10 4.99992Z"
-                stroke="#3855F2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-              <path
-                d="M10 16.6666C10.4603 16.6666 10.8334 16.2935 10.8334 15.8333C10.8334 15.373 10.4603 14.9999 10 14.9999C9.53978 14.9999 9.16669 15.373 9.16669 15.8333C9.16669 16.2935 9.53978 16.6666 10 16.6666Z"
-                stroke="#3855F2"
-                stroke-width="1.5"
-                stroke-linecap="round"
-                stroke-linejoin="round"
-              />
-            </svg>
+            <AssignDropdown />
           </div>
           <div className="flex flex-col gap-6 ">
             <div className="flex gap-6">
@@ -229,7 +208,33 @@ const AssessmentsOngoing = () => {
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">
                   Assignees
                 </p>
-                <div className=""></div>
+                <div className="flex">
+                  <div className="w-5 h-5 rounded-full border-[2px] border-white  bg-slate-400 flex justify-center items-center">
+                    <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                      A
+                    </p>
+                  </div>
+                  <div className="w-5 h-5 rounded-full border-[2px] border-white bg-slate-100 flex justify-center items-center -ml-[6px]">
+                    <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                      A
+                    </p>
+                  </div>
+                  <div className="w-5 h-5 rounded-full border-[2px] border-white bg-slate-200 flex justify-center items-center -ml-[6px]">
+                    <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                      A
+                    </p>
+                  </div>
+                  <div className="w-5 h-5 rounded-full border-[2px] border-white bg-slate-300 flex justify-center items-center -ml-[6px]">
+                    <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                      A
+                    </p>
+                  </div>
+                  <div className="w-5 h-5 rounded-full border-[2px] border-white bg-slate-400 flex justify-center items-center -ml-[6px]">
+                    <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                      5+
+                    </p>
+                  </div>
+                </div>
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">

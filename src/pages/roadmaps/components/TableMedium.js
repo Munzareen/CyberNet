@@ -1,7 +1,7 @@
 import { useState } from "react";
 import QuestionIcon from "./QuestionIcon";
 import RoadmapFormDropdown from "./RoadmapFormDropdown";
-const Table = ({ setRmHeroDisplay }) => {
+const TableMedium = () => {
   const [data, setData] = useState([
     {
       id: 1,
@@ -119,25 +119,26 @@ const Table = ({ setRmHeroDisplay }) => {
                       </div>
                       <div></div>
                     </td>
-                    <td className="px-6">
-                      <div className="">
-                        <RoadmapFormDropdown />
+                    <td className="px-6 ">
+                      <div className="flex items-center gap-2 w-48">
+                        <div className="w-5 h-5 rounded-full bg-slate-100 flex justify-center items-center">
+                          <p className="text-[10px] font-semibold font-inter text-[#475467] text-center">
+                            A
+                          </p>
+                        </div>
+                        <p className="text-left text-sm font-medium text-[#475467]">
+                          Trish Stratus
+                        </p>
+                      </div>
+                    </td>
+                    <td className="px-6 py-3 ">
+                      <div className="w-48 text-left text-sm font-medium text-[#475467] tracking-wider">
+                        12/08/2023
                       </div>
                     </td>
                     <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
-                      <input
-                        type="date"
-                        className="text-[#475467] shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-48 px-4 py-1 h-10 rounded-xl bg-[#FFFFFF] text-sm font-medium font-inter outline-none"
-                      />
-                    </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
                       <div className="flex gap-1">
-                        <button
-                          onClick={() => {
-                            setRmHeroDisplay("comments_details");
-                          }}
-                          className="h-10 w-10 flex justify-center items-center"
-                        >
+                        <div className="h-10 w-10 flex justify-center items-center">
                           <svg
                             width="18"
                             height="16"
@@ -152,13 +153,8 @@ const Table = ({ setRmHeroDisplay }) => {
                               stroke-linecap="round"
                             />
                           </svg>
-                        </button>
-                        <button
-                          onClick={() => {
-                            setRmHeroDisplay("info");
-                          }}
-                          className="h-10 w-10 flex justify-center items-center"
-                        >
+                        </div>
+                        <div className="h-10 w-10 flex justify-center items-center">
                           <svg
                             width="18"
                             height="14"
@@ -181,7 +177,7 @@ const Table = ({ setRmHeroDisplay }) => {
                               stroke-linejoin="round"
                             />
                           </svg>
-                        </button>
+                        </div>
                         <div className="h-10 w-10 flex justify-center items-center">
                           <svg
                             width="15"
@@ -212,4 +208,4 @@ const Table = ({ setRmHeroDisplay }) => {
   );
 };
 
-export default Table;
+export default TableMedium;
