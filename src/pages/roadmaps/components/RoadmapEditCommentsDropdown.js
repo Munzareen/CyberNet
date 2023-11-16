@@ -1,7 +1,11 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function RoadmapEditCommentsDropdown() {
   const [open, setOpen] = useState(false);
   const dropdownRef = useRef(null);
+  const { t } = useTranslation();
+
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
@@ -29,7 +33,7 @@ export default function RoadmapEditCommentsDropdown() {
         }}
       >
         <span className={open ? "text-[#475467]" : "text-[#475467]"}>
-          In progress
+          {t("inprogress")}
         </span>
         <svg
           className="fill-current h-4 w-4 ml-2"
@@ -54,42 +58,42 @@ export default function RoadmapEditCommentsDropdown() {
           <ul className="list-none p-0 m-0">
             <li className="">
               <p
-                className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
+                className="text-left text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
                 href="#"
               >
-                Unassigned
+                {t("unassigned")}
               </p>
             </li>
             <li className="">
               <p
-                className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
+                className="text-left text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
                 href="#"
               >
-                In progress
+                {t("inprogress")}
               </p>
             </li>
             <li className="">
               <p
-                className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
+                className="text-left text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
                 href="#"
               >
-                In revision
+                {t("inrevision")}
               </p>
             </li>
             <li className="">
               <p
-                className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
+                className="text-left text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
                 href="#"
               >
-                In review
+                {t("inreview")}
               </p>
             </li>
             <li className="">
               <p
-                className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
+                className="text-left text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap"
                 href="#"
               >
-                Completed
+                {t("completed")}
               </p>
             </li>
           </ul>

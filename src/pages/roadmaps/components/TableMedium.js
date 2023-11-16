@@ -1,7 +1,11 @@
 import { useState } from "react";
 import QuestionIcon from "./QuestionIcon";
 import RoadmapFormDropdown from "./RoadmapFormDropdown";
+import { useTranslation } from "react-i18next";
+
 const TableMedium = () => {
+  const { t } = useTranslation();
+
   const [data, setData] = useState([
     {
       id: 1,
@@ -66,38 +70,38 @@ const TableMedium = () => {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Action Item #
+                    {t("actionitem")} #
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Description
+                    {t("description")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Assignee
+                    {t("assignee")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Due Date
+                    {t("duedate")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Actions
+                    {t("actions")}
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {data.map((item) => (
                   <tr key={item.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-xs font-medium text-gray-900">
                       <input
                         type="checkbox"
                         name="selectedItems"
@@ -107,12 +111,12 @@ const TableMedium = () => {
                         className="w-5 h-5 rounded-sm"
                       />
                     </td>
-                    <td className="px-6 py-3 text-left text-sm font-medium text-[#101828] tracking-wider">
+                    <td className="px-6 py-3 text-left text-xs font-medium text-[#101828] tracking-wider">
                       {item.actionItem}
                     </td>
                     <td className="px-6 py-3">
                       <div className="flex gap-4 items-center">
-                        <p className="text-left text-sm font-medium text-[#475467] tracking-wider">
+                        <p className="text-left text-xs font-medium text-[#475467] tracking-wider">
                           {item.description}
                         </p>
                         <QuestionIcon />
@@ -126,17 +130,17 @@ const TableMedium = () => {
                             A
                           </p>
                         </div>
-                        <p className="text-left text-sm font-medium text-[#475467]">
+                        <p className="text-left text-xs font-medium text-[#475467]">
                           Trish Stratus
                         </p>
                       </div>
                     </td>
                     <td className="px-6 py-3 ">
-                      <div className="w-48 text-left text-sm font-medium text-[#475467] tracking-wider">
+                      <div className="w-48 text-left text-xs font-medium text-[#475467] tracking-wider">
                         12/08/2023
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
                       <div className="flex gap-1">
                         <div className="h-10 w-10 flex justify-center items-center">
                           <svg

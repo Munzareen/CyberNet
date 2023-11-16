@@ -1,7 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "react-i18next";
 
-export default function AssignDropdown() {
+export default function AssignExampleDropdown() {
   const { t } = useTranslation();
 
   const [open, setOpen] = useState(false);
@@ -71,7 +71,7 @@ export default function AssignDropdown() {
                 className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap text-left"
                 href="#"
               >
-                {t("viewdashboard")}
+                {t("viewcomments")}
               </p>
             </li>
             <li className="">
@@ -79,7 +79,7 @@ export default function AssignDropdown() {
                 className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap text-left"
                 href="#"
               >
-                {t("roadmaps")}
+                {t("viewsupport")}
               </p>
             </li>
           </ul>

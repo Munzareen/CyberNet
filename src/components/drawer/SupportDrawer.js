@@ -4,7 +4,10 @@ import { useState } from "react";
 import { MyContext } from "../../MyContext";
 import { useContext } from "react";
 
+import { useTranslation } from "react-i18next";
+
 export default function SupportDrawer({ children }) {
+  const { t } = useTranslation();
   const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
   const { isSupportOpen, setIsSupportOpen } = useContext(MyContext);
 
@@ -37,8 +40,8 @@ export default function SupportDrawer({ children }) {
             {viewCommentsFlag ? (
               <>
                 <div className="border-b-2 border-gray-300 flex justify-between px-8 py-5 items-center">
-                  <p className="text-[#101828] text-2xl font-semibold font-inter">
-                    Support
+                  <p className="text-[#101828] text-xl font-semibold font-inter">
+                    {t("support")}
                   </p>
                   <button
                     onClick={() => {
@@ -69,35 +72,35 @@ export default function SupportDrawer({ children }) {
                 <div className="flex flex-col flex-grow gap-5 px-8">
                   <div className="mt-5 flex flex-row gap-4 ">
                     <div className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
-                      <p className="text-[#3855F2] text-base font-semibold font-inter">
-                        New Updates
+                      <p className="text-[#3855F2] text-sm font-semibold font-inter">
+                        {t("newupdates")}
                       </p>
                     </div>
                     <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-                      <p className="text-base font-semibold font-inter">
-                        All comments
+                      <p className="text-sm font-semibold font-inter">
+                        {t("allcomments")}
                       </p>
                     </div>
                   </div>
                   <div className="rounded-xl p-5 gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
                     <div className="">
                       <div className="flex justify-between">
-                        <div className="text-lg font-inter font-semibold text-[#101828]">
-                          Update on new version
+                        <div className="text-base font-inter font-semibold text-[#101828]">
+                          {t("updateversion")}
                         </div>
                       </div>
                       <div className="font-inter font-medium text-[#475467] text-sm">
-                        5 minutes ago
+                        {t("fiveminutesago")}
                       </div>
                       <div className="flex gap-3 mt-3">
                         <button className="font-inter font-semibold text-[#475467] text-sm">
-                          Dismiss
+                          {t("dismiss")}
                         </button>
                         <button
                           onClick={() => setViewCommentsFlag(false)}
                           className="font-inter font-semibold text-[#3855F2] text-sm"
                         >
-                          View Comments
+                          {t("viewcomments")}
                         </button>
                       </div>
                     </div>
@@ -112,6 +115,7 @@ export default function SupportDrawer({ children }) {
                       onClick={() => {
                         setViewCommentsFlag(true);
                       }}
+                      className="w-7 h-7"
                     >
                       <svg
                         width="20"
@@ -128,8 +132,8 @@ export default function SupportDrawer({ children }) {
                         />
                       </svg>
                     </button>
-                    <p className="text-[#101828] text-2xl font-semibold font-inter">
-                      System reply on question
+                    <p className="text-[#101828] text-xl font-semibold font-inter">
+                      {t("systemreply")}
                     </p>
                   </div>
                   <button

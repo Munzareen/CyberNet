@@ -1,6 +1,9 @@
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function SupportComment() {
+  const { t } = useTranslation();
   return (
     <div className="rounded-xl p-5 gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
       <div className="flex w-full gap-4">
@@ -18,14 +21,11 @@ export default function SupportComment() {
                 Chatbot
               </div>
               <div className="font-inter font-medium text-[#667085] text-sm">
-                2 mins ago
+                {t("fiveminutesago")}
               </div>
             </div>
             <div className="font-inter font-medium text-[#475467] text-sm">
-              I’ve finished adding my notes. Happy for us to review whenever
-              you’re ready. I’ve finished adding my notes. Happy for us to
-              review whenever you’re ready. I’ve finished adding my notes. Happy
-              for us to review whenever you’re ready!
+              {t("finishednotes")}{" "}
             </div>
           </div>
         </div>

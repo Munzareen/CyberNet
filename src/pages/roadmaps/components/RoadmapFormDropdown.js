@@ -1,8 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useTranslation } from "react-i18next";
 
 const RoadmapFormDropdown = () => {
+  const { t } = useTranslation();
   const [isOpen, setIsOpen] = useState(false);
-  const [selectedOption, setSelectedOption] = useState("Myself");
+  const [selectedOption, setSelectedOption] = useState(t("myself"));
   const dropdownRef = useRef(null);
 
   const toggleDropdown = () => {
@@ -40,7 +42,7 @@ const RoadmapFormDropdown = () => {
                 className="text-sm font-semibold font-inter text-[#344054] py-3 px-5 hover:bg-[#ECF1FD] cursor-pointer whitespace-nowrap text-left"
                 href="#"
               >
-                Myself
+                {t("myself")}
               </p>
             </li>
             <li className="">

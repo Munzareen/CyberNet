@@ -1,6 +1,10 @@
 import React from "react";
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
+
 export default function Comment() {
+  const { t } = useTranslation();
+
   const [flag, setFlag] = useState(true);
 
   return (
@@ -22,34 +26,33 @@ export default function Comment() {
                 Katherine Moss
               </div>
               <div className="font-inter font-medium text-[#667085] text-sm">
-                2 mins ago
+                {t("fiveminutesago")}
               </div>
             </div>
             <div className="font-inter font-medium text-[#475467] text-sm">
-              I’ve finished adding my notes. Happy for us to review whenever
-              you’re ready!
+              {t("finishednotes")}{" "}
             </div>
           </div>
           {flag ? (
             <div className="flex gap-3">
               <div className="font-inter font-semibold text-[#475467] text-sm">
-                Dismiss
+                {t("dismiss")}
               </div>
               <button
                 onClick={() => setFlag(false)}
                 className="font-inter font-semibold text-[#3855F2] text-sm"
               >
-                Reply
+                {t("reply")}
               </button>
             </div>
           ) : (
             <div className="flex flex-col gap-3">
               <textarea
                 className="border-[#D0D5DD] border font-inter font-medium text-[#475467] text-sm w-full h-20 rounded-lg p-3 outline-none"
-                placeholder="Enter your reply here"
+                placeholder={t("enterreply")}
               ></textarea>
-              <button className="py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter w-24">
-                Send
+              <button className="py-3 px-2 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter w-24">
+                {t("send")}
               </button>
             </div>
           )}

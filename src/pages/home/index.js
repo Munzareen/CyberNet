@@ -3,19 +3,21 @@ import "./home.css";
 import Navbar from "../../components/Navbar/Navbar";
 import { Link } from "react-router-dom";
 import Drawer from "../../components/drawer/Drawer";
+import { useTranslation } from "react-i18next";
 
 const Home = () => {
+  const { t, i18n } = useTranslation();
+
   return (
     <div className="r-assessments-initial bg-[#14143E] pt-4 w-full">
       <div className="bg-white rounded-tl-3xl py-4 px-8 h-full flex flex-col">
         {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
         <div className="flex flex-col pt-1">
-          <h1 className="text-[#101828] text-3xl font-bold font-inter">
-            Welcome, Olivia
+          <h1 className="text-[#101828] text-2xl font-bold font-inter">
+            {t("welcomeolivia")}
           </h1>
-          <p className="text-[#475467] text-base font-medium font-inter text-left">
-            You have not any key metrics about any assessment yet. Please start
-            new assessment by following steps below.
+          <p className="text-[#475467] text-sm font-medium font-inter text-left">
+            {t("youhavenotanykeymetrics")}
           </p>
         </div>
         <div className="flex flex-col flex-wrap gap-14 px-20 py-0">
@@ -38,12 +40,11 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <p className="text-[#101828] text-xl font-semibold font-inter">
-                Select an assessment
+              <p className="text-[#101828] text-lg font-semibold font-inter">
+                {t("selectanassessment")}
               </p>
-              <p className="text-[#475467] text-base font-medium font-inter">
-                Whether you have a team of 2 or 200, our shared team inboxes
-                keep everyone on the same page and in the loop.
+              <p className="text-[#475467] text-sm font-medium font-inter">
+                {t("whetheryouhaveateam")}
               </p>
             </div>
             <div className="w-1/2 flex flex-col justify-center items-center">
@@ -64,12 +65,11 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <p className="text-[#101828] text-xl font-semibold font-inter">
-                Complete an assessment{" "}
+              <p className="text-[#101828] text-lg font-semibold font-inter">
+                {t("completeanassessment")}{" "}
               </p>
-              <p className="text-[#475467] text-base font-medium font-inter">
-                Whether you have a team of 2 or 200, our shared team inboxes
-                keep everyone on the same page and in the loop.
+              <p className="text-[#475467] text-sm font-medium font-inter">
+                {t("whetheryouhaveateam")}
               </p>
             </div>
           </div>
@@ -99,12 +99,11 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <p className="text-[#101828] text-xl font-semibold font-inter">
-                Track actionable and notes{" "}
+              <p className="text-[#101828] text-lg font-semibold font-inter">
+                {t("tractactionablenotes")}
               </p>
-              <p className="text-[#475467] text-base font-medium font-inter">
-                Whether you have a team of 2 or 200, our shared team inboxes
-                keep everyone on the same page and in the loop.
+              <p className="text-[#475467] text-sm font-medium font-inter">
+                {t("whetheryouhaveateam")}
               </p>
             </div>
             <div className="w-1/2 flex flex-col justify-center items-center">
@@ -125,18 +124,17 @@ const Home = () => {
                   />
                 </svg>
               </div>
-              <p className="text-[#101828] text-xl font-semibold font-inter">
-                Track your progress{" "}
+              <p className="text-[#101828] text-lg font-semibold font-inter">
+                {t("trackprogress")}
               </p>
-              <p className="text-[#475467] text-base font-medium font-inter">
-                Whether you have a team of 2 or 200, our shared team inboxes
-                keep everyone on the same page and in the loop.
+              <p className="text-[#475467] text-sm font-medium font-inter">
+                {t("whetheryouhaveateam")}
               </p>
             </div>
           </div>
           <Link to="/dashboard/home/new ">
-            <button className="py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-base font-medium font-inter">
-              Start New Assessment
+            <button className="py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
+              {t("startnewassessment")}
             </button>
           </Link>
         </div>

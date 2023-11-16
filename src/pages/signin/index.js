@@ -6,7 +6,15 @@ import Button from "../../components/form/button";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../components/layout/footer";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+
 const Signin = () => {
+  const { t, i18n } = useTranslation();
+
+  const handleTrans = (code) => {
+    i18n.changeLanguage(code);
+  };
+
   const navigate = useNavigate();
   const formInitialState = {
     email: "",
@@ -35,27 +43,42 @@ const Signin = () => {
 
   return (
     <>
+      <div className="absolute top-0 left-0 m-8 flex gap-2">
+        {/* <h1 className="text-gray-950">{t("welcome")}</h1> */}
+        <button
+          className="z-20 text-sm font-medium"
+          onClick={() => handleTrans("en")}
+        >
+          English
+        </button>
+        <button
+          className="z-20 text-sm font-medium"
+          onClick={() => handleTrans("fr")}
+        >
+          French
+        </button>
+      </div>
       <div className="signin_layout">
         <img src={require("../../assets/images/signin.png")} alt="computer" />
       </div>
       <section className="page_section">
         <div className="container">
           <img src={logo} alt="brand logo" />
-          <h2>Login</h2>
+          <h2>{t("login")}</h2>
           <form className="form">
             <InputField
               label={"Email"}
               required
-              placeholder="Enter your email"
+              placeholder={t("enteremail")}
               type="email"
               name="email"
               value={formControl.email}
               onChange={handleChange}
             />
             <InputField
-              label={"Password"}
+              label={t("password")}
               required
-              placeholder="Create password"
+              placeholder={t("enterpassword")}
               type="password"
               name="password"
               value={formControl.password}
@@ -68,19 +91,19 @@ const Signin = () => {
                   checked={isChecked}
                   onChange={handleCheckboxChange}
                 />
-                <label className="label">Remember for 30 days</label>
+                <label className="label">{t("remember")}</label>
               </div>
               <p>
-                <span>Forgot Password</span>
+                <span>{t("forgot")}</span>
               </p>
             </div>
             <Link to="/dashboard/home">
               {/* <Button value="Sign in" onClick={handleSubmit} /> */}
-              <Button value="Sign in"></Button>
+              <Button value={t("signin")}></Button>
             </Link>
             <p className="signup_content">
-              Don't have an account?
-              <span onClick={() => navigate("/signup")}> Sign up</span>
+              {t("donthaveanaccount")}
+              <span onClick={() => navigate("/signup")}>{t("signup")}</span>
             </p>
           </form>
         </div>

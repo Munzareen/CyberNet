@@ -1,27 +1,31 @@
 import { useState } from "react";
 import QuestionIcon from "./QuestionIcon";
 import RoadmapFormDropdown from "./RoadmapFormDropdown";
+
+import { useTranslation } from "react-i18next";
 const Table = ({ setRmHeroDisplay }) => {
+  const { t } = useTranslation();
+
   const [data, setData] = useState([
     {
       id: 1,
-      actionItem: "Action Item 1",
-      description: "Description 1",
-      assignee: "Assignee 1",
+      actionItem: "ACT-621",
+      description: t("cybersecurity"),
+      assignee: "Trish Stratus",
       dueDate: "2022-01-01",
     },
     {
       id: 2,
-      actionItem: "Action Item 2",
-      description: "Description 2",
-      assignee: "Assignee 2",
+      actionItem: "Dow-982",
+      description: t("cybersecurity"),
+      assignee: "Jimmy Montez",
       dueDate: "2022-02-01",
     },
     {
       id: 3,
-      actionItem: "Action Item 3",
-      description: "Description 3",
-      assignee: "Assignee 3",
+      actionItem: "APT-001",
+      description: t("cybersecurity"),
+      assignee: "Liv Morgan",
       dueDate: "2022-03-01",
     },
   ]);
@@ -66,38 +70,38 @@ const Table = ({ setRmHeroDisplay }) => {
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Action Item #
+                    {t("actionitem")} #
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Description
+                    {t("description")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Assignee
+                    {t("assignee")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Due Date
+                    {t("duedate")}
                   </th>
                   <th
                     scope="col"
                     className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
                   >
-                    Actions
+                    {t("actions")}
                   </th>
                 </tr>
               </thead>
               <tbody className="bg-white divide-y divide-gray-200">
                 {data.map((item) => (
                   <tr key={item.id}>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-900">
+                    <td className="px-6 py-4 whitespace-nowrap text-xs font-medium text-gray-900">
                       <input
                         type="checkbox"
                         name="selectedItems"
@@ -107,30 +111,30 @@ const Table = ({ setRmHeroDisplay }) => {
                         className="w-5 h-5 rounded-sm"
                       />
                     </td>
-                    <td className="px-6 py-3 text-left text-sm font-medium text-[#101828] tracking-wider">
+                    <td className="px-6 py-3 text-left text-xs font-medium text-[#101828] tracking-wider">
                       {item.actionItem}
                     </td>
                     <td className="px-6 py-3">
                       <div className="flex gap-4 items-center">
-                        <p className="text-left text-sm font-medium text-[#475467] tracking-wider">
-                          {item.description}
+                        <p className="text-left text-xs font-medium text-[#475467] tracking-wider">
+                          {t("cybersecurity")}
                         </p>
                         <QuestionIcon />
                       </div>
                       <div></div>
                     </td>
-                    <td className="px-6">
+                    <td className="px-2">
                       <div className="">
                         <RoadmapFormDropdown />
                       </div>
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-2 py-4 whitespace-nowrap text-xs text-gray-500">
                       <input
                         type="date"
-                        className="text-[#475467] shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-48 px-4 py-1 h-10 rounded-xl bg-[#FFFFFF] text-sm font-medium font-inter outline-none"
+                        className="text-[#475467] shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-48 px-4 py-1 h-10 rounded-xl bg-[#FFFFFF] text-xs font-medium font-inter outline-none"
                       />
                     </td>
-                    <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-500">
+                    <td className="px-6 py-4 whitespace-nowrap text-xs text-gray-500">
                       <div className="flex gap-1">
                         <button
                           onClick={() => {

@@ -1,23 +1,19 @@
 import React from "react";
 import "./roadmaps.css";
-import Navbar from "../../components/Navbar/Navbar";
-import Drawer from "../../components/drawer/Drawer";
-import SearchIconbar from "../../components/icons/searchIconBar/SearchIconbar";
 import RoadmapDropdown from "./components/RoadmapDropdown";
 import Table from "./components/Table";
 import { useState } from "react";
 import TableMedium from "./components/TableMedium";
 import CrossIcon from "../../components/icons/CrossIcon";
-import SpaceshipIcon from "../../components/icons/SpaceshipIcon";
-import RoadmapsIcon from "../../components/icons/navIcons/RoadmapsIcon";
 import BlueRoadmapsIcon from "../../components/icons/BlueRoadmapsIcon";
 import Comment from "../../components/drawer/Comment";
 import RoadmapEditCommentsDropdown from "./components/RoadmapEditCommentsDropdown";
+import { useTranslation } from "react-i18next";
 
 const Roadmaps = () => {
   const [priority, setPriority] = useState("high");
   const [rmHeroDisplay, setRmHeroDisplay] = useState("");
-  const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
+  const { t } = useTranslation();
 
   return (
     <>
@@ -26,20 +22,24 @@ const Roadmaps = () => {
           {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
           <div className="mt-5 flex flex-row gap-4 px-8">
             <button className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
-              <p className="text-[#3855F2] text-base font-semibold font-inter">
-                All
+              <p className="text-[#3855F2] text-sm font-semibold font-inter">
+                {t("all")}
               </p>
             </button>
             <button className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-              <p className="text-base font-semibold font-inter">Assigned</p>
+              <p className="text-sm font-semibold font-inter">
+                {t("assigned")}
+              </p>
             </button>
             <button className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-              <p className="text-base font-semibold font-inter">Unassigned</p>
+              <p className="text-sm font-semibold font-inter">
+                {t("unassigned")}
+              </p>
             </button>
           </div>
           <div className="bg-[#F9F9F9] flex flex-col p-8 gap-3">
-            <div className="text-[#101828] text-3xl font-bold font-inter">
-              All roadmaps
+            <div className="text-[#101828] text-2xl font-bold font-inter">
+              {t("allroadmaps")}
             </div>
             <div className="flex gap-2 border border-[#F2F4F7] rounded-md p-1">
               <button
@@ -52,7 +52,7 @@ const Roadmaps = () => {
                 onClick={() => setPriority("high")}
               >
                 <p className="text-[#F23838] text-xs font-semibold font-inter">
-                  High priority
+                  {t("highpriority")}
                 </p>
                 <div className="rounded-full bg-[#F3E1E2] px-2 py-1">
                   <p className="text-[#F23838] text-xs font-medium font-inter">
@@ -70,7 +70,7 @@ const Roadmaps = () => {
                 onClick={() => setPriority("medium")}
               >
                 <p className="text-[#C238F2] text-xs font-semibold font-inter">
-                  Medium priority{" "}
+                  {t("mediumpriority")}
                 </p>
                 <div className="rounded-full bg-[#F2F4F7] px-2 py-1">
                   <p className="text-[#344054] text-xs font-medium font-inter">
@@ -88,7 +88,7 @@ const Roadmaps = () => {
                 onClick={() => setPriority("low")}
               >
                 <p className="text-[#06CA02] text-xs font-semibold font-inter">
-                  Low priority{" "}
+                  {t("lowpriority")}
                 </p>
                 <div className="rounded-full bg-[#F2F4F7] px-2 py-1">
                   <p className="text-[#344054] text-xs font-medium font-inter">
@@ -101,8 +101,8 @@ const Roadmaps = () => {
           {priority === "high" ? (
             <div className="flex flex-col p-8 gap-5">
               <div className="flex justify-between">
-                <p className="text-[#344054] text-lg font-semibold font-inter">
-                  High priority roadmaps
+                <p className="text-[#344054] text-base font-semibold font-inter">
+                  {t("highpriorityroadmaps")}
                 </p>
                 <div className="flex gap-5">
                   <div className="search">
@@ -126,8 +126,8 @@ const Roadmaps = () => {
                       </div>
                       <input
                         type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-base leading-6 focus:outline-none"
-                        placeholder="Search"
+                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
+                        placeholder={t("search")}
                       />
                     </div>
                   </div>
@@ -143,8 +143,8 @@ const Roadmaps = () => {
           ) : priority === "medium" ? (
             <div className="flex flex-col p-8 gap-5">
               <div className="flex justify-between">
-                <p className="text-[#344054] text-lg font-semibold font-inter">
-                  Medium priority roadmaps
+                <p className="text-[#344054] text-base font-semibold font-inter">
+                  {t("mediumpriorityroadmaps")}
                 </p>
                 <div className="flex gap-5">
                   <div className="search">
@@ -168,7 +168,7 @@ const Roadmaps = () => {
                       </div>
                       <input
                         type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-base leading-6 focus:outline-none"
+                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
                         placeholder="Search"
                       />
                     </div>
@@ -185,8 +185,8 @@ const Roadmaps = () => {
           ) : priority === "low" ? (
             <div className="flex flex-col p-8 gap-5">
               <div className="flex justify-between">
-                <p className="text-[#344054] text-lg font-semibold font-inter">
-                  Low priority roadmaps
+                <p className="text-[#344054] text-base font-semibold font-inter">
+                  {t("lowpriorityroadmaps")}
                 </p>
                 <div className="flex gap-5">
                   <div className="search">
@@ -210,7 +210,7 @@ const Roadmaps = () => {
                       </div>
                       <input
                         type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-base leading-6 focus:outline-none"
+                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
                         placeholder="Search"
                       />
                     </div>
@@ -253,46 +253,44 @@ const Roadmaps = () => {
               </button>
             </div>
             <div className="flex flex-col gap-2">
-              <p className="text-lg font-semibold font-inter text-left text-[#101828]">
+              <p className="text-base font-semibold font-inter text-left text-[#101828]">
                 ACT-6521
               </p>
-              <p className="text-sm font-medium font-inter text-left text-[#475467]">
-                Educational assessment or educational evaluation is the
-                systematic process of documenting and using empirical data on
-                the knowledge, skill, attitudes, aptitude{" "}
+              <p className="text-xs font-medium font-inter text-left text-[#475467]">
+                {t("roadmapsgenericdescription")}{" "}
               </p>
             </div>
             <div className="rounded-xl flex flex-row p-5 gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full justify-between">
               <div className="flex flex-col gap-2">
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">
-                  Assigned to
+                  {t("assignedto")}
                 </p>
-                <p className="text-[#344054] text-sm text-left font-bold font-inter whitespace-nowrap">
-                  My self
+                <p className="text-[#344054] text-xs text-left font-bold font-inter whitespace-nowrap">
+                  {t("myself")}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">
-                  Due Date
+                  {t("duedate")}
                 </p>
-                <p className="text-[#344054] text-sm text-left font-bold font-inter whitespace-nowrap">
+                <p className="text-[#344054] text-xs text-left font-bold font-inter whitespace-nowrap">
                   21 May 2020
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">
-                  Comments
+                  {t("comments")}
                 </p>
-                <p className="text-[#3855F2] text-sm text-left font-bold font-inter underline whitespace-nowrap">
-                  7 Comments
+                <p className="text-[#3855F2] text-xs text-left font-bold font-inter underline whitespace-nowrap">
+                  7 {t("comments")}
                 </p>
               </div>
               <div className="flex flex-col gap-2">
                 <p className="text-[#475467] text-xs text-left font-medium font-inter whitespace-nowrap">
-                  Actionable items
+                  {t("actionitems")}
                 </p>
-                <p className="text-[#3855F2] text-sm text-left font-bold font-inter underline whitespace-nowrap">
-                  5 Actions
+                <p className="text-[#3855F2] text-xs text-left font-bold font-inter underline whitespace-nowrap">
+                  5 {t("actionitems")}
                 </p>
               </div>
             </div>
@@ -303,13 +301,13 @@ const Roadmaps = () => {
                 }}
                 className="w-56 py-3 px-6 rounded-2xl bg-white hover:bg-[#f7faff] border border-[#344054] "
               >
-                <p className="text-[#344054] text-base font-medium font-inter">
-                  Edit
+                <p className="text-[#344054] text-sm font-medium font-inter">
+                  {t("edit")}
                 </p>
               </button>
               <button className="w-56 py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] ">
-                <p className="text-white text-base font-medium font-inter">
-                  Assign to other
+                <p className="text-white text-sm font-medium font-inter">
+                  {t("assigntoother")}
                 </p>
               </button>
             </div>
@@ -340,23 +338,17 @@ const Roadmaps = () => {
             </div>
             <div className="w-full flex justify-between gap-4">
               <div className="w-3/5 flex flex-col gap-2">
-                <p className="text-lg font-semibold font-inter text-left text-[#101828]">
+                <p className="text-base font-semibold font-inter text-left text-[#101828]">
                   ACT-6521
                 </p>
-                <p className="text-sm font-medium font-inter text-left text-[#475467]">
-                  Educational assessment or educational evaluation is the
-                  systematic process of documenting and using empirical data on
-                  the knowledge, skill, attitudes, aptitude.
+                <p className="text-xs font-medium font-inter text-left text-[#475467]">
+                  {t("roadmapsgenericdescription")}
                 </p>
-                <p className="text-sm font-medium font-inter text-left text-[#475467]">
-                  Educational assessment or educational evaluation is the
-                  systematic process of documenting and using empirical data on
-                  the knowledge, skill, attitudes, aptitude.
+                <p className="text-xs font-medium font-inter text-left text-[#475467]">
+                  {t("roadmapsgenericdescription")}
                 </p>
-                <p className="text-sm font-medium font-inter text-left text-[#475467]">
-                  Educational assessment or educational evaluation is the
-                  systematic process of documenting and using empirical data on
-                  the knowledge, skill, attitudes, aptitude.
+                <p className="text-xs font-medium font-inter text-left text-[#475467]">
+                  {t("roadmapsgenericdescription")}
                 </p>
               </div>
               <div className="w-2/5 flex flex-col border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] rounded-xl p-5 items-start justify-start gap-3">
@@ -366,65 +358,55 @@ const Roadmaps = () => {
                   <div className="w-1/2 h-full flex flex-col">
                     <div className="h-5 flex items-center">
                       <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Assignee name
+                        {t("assigneename")}
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
                       <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Reporter
+                        {t("reporter")}
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
                       <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Status
+                        {t("status")}
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
                       <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Due date
+                        {t("duedate")}
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
                       <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Priority
-                      </p>
-                    </div>
-                    <div className="h-5 flex items-center">
-                      <p className="text-[#475467] text-xs font-medium font-inter text-left">
-                        Reporter
+                        {t("priority")}
                       </p>
                     </div>
                   </div>
                   <div className="w-1/2 h-full flex flex-col">
                     {" "}
                     <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
+                      <p className="text-[#344054] text-xs font-semibold font-inter text-left">
                         John Lynx
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
+                      <p className="text-[#344054] text-xs font-semibold font-inter text-left">
                         rfasf@gmail.com
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
-                        In progress
+                      <p className="text-[#344054] text-xs font-semibold font-inter text-left">
+                        {t("inprogress")}
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
+                      <p className="text-[#344054] text-xs font-semibold font-inter text-left">
                         12 March 2021
                       </p>
                     </div>
                     <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
-                        High
-                      </p>
-                    </div>
-                    <div className="h-5 flex items-center">
-                      <p className="text-[#344054] text-sm font-semibold font-inter text-left">
-                        rfasf@gmail.com
+                      <p className="text-[#344054] text-xs font-semibold font-inter text-left">
+                        {t("highpriority")}
                       </p>
                     </div>
                   </div>
@@ -432,8 +414,8 @@ const Roadmaps = () => {
               </div>
             </div>
             <div className="flex flex-col gap-4 w-full justify-between mt-4">
-              <p className="text-[#101828] text-lg font-semibold font-inter text-left">
-                Comments
+              <p className="text-[#101828] text-base font-semibold font-inter text-left">
+                {t("comments")}
               </p>
               <Comment />
               <Comment />

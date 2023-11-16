@@ -14,8 +14,14 @@ import LogoutIcon from "../icons/navIcons/LogoutIcon";
 import { MyContext } from "../../MyContext";
 import "./Navbar.css";
 import { useContext } from "react";
+import { useTranslation } from "react-i18next";
 
 export default function Navbar() {
+  const { t, i18n } = useTranslation();
+  const handleTrans = (code) => {
+    i18n.changeLanguage(code);
+  };
+
   const { setIsOpen } = useContext(MyContext);
   const { setIsSupportOpen } = useContext(MyContext);
 
@@ -32,8 +38,8 @@ export default function Navbar() {
             </div>
             <input
               type="text"
-              className="w-full bg-[#475467] text-gray-100 font-inter font-medium text-base leading-6 focus:outline-none"
-              placeholder="Search"
+              className="w-full bg-[#475467] text-gray-100 font-inter font-medium leading-6 focus:outline-none"
+              placeholder={t("search")}
             />
           </div>
         </div>
@@ -45,8 +51,8 @@ export default function Navbar() {
             activeClassName="active"
           >
             <DashboardIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Dashboard
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("dashboard")}
             </div>
           </NavLink>
           <NavLink
@@ -55,8 +61,8 @@ export default function Navbar() {
             activeClassName="active"
           >
             <AssessIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100 ">
-              Assessments
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100 ">
+              {t("assessments")}
             </div>
           </NavLink>
           <NavLink
@@ -65,8 +71,8 @@ export default function Navbar() {
             activeClassName="active"
           >
             <RoadmapsIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Roadmaps
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("roadmaps")}
             </div>
           </NavLink>
           <button
@@ -74,8 +80,8 @@ export default function Navbar() {
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
           >
             <CommentsIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Comments
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("comments")}
             </div>
           </button>
           <NavLink
@@ -84,13 +90,13 @@ export default function Navbar() {
             activeClassName="active"
           >
             <UserManualsIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              User Manuals
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("usermanuals")}
             </div>
           </NavLink>
         </div>
       </div>
-      <div className="nav-bottom flex flex-col justify-center pb-8 px-8 gap-3">
+      <div className="relative nav-bottom flex flex-col justify-center pb-8 px-8 gap-3">
         <div className="flex flex-col gap-2">
           <NavLink
             to="/dashboard/notifications"
@@ -98,8 +104,8 @@ export default function Navbar() {
             activeClassName="active"
           >
             <NotiIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Notifications
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("notifications")}
             </div>
           </NavLink>
           <button
@@ -107,8 +113,8 @@ export default function Navbar() {
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
           >
             <SuppIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Support
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("support")}
             </div>
           </button>
 
@@ -118,8 +124,8 @@ export default function Navbar() {
             activeClassName="active"
           >
             <SettingsIcon />
-            <div className="font-inter font-medium text-base leading-6 text-gray-100">
-              Settings
+            <div className="font-inter font-medium text-sm leading-6 text-gray-100">
+              {t("settings")}
             </div>
           </NavLink>
         </div>
@@ -129,15 +135,29 @@ export default function Navbar() {
           </div>
           <div className="flex justify-between items-center w-full">
             <div className="text-container flex flex-col ml-4">
-              <div className="font-inter font-medium text-base text-gray-100">
-                <div className="font-medium text-base text-gray-100">
-                  Top User Info
+              <div className="font-inter font-medium text-sm text-gray-100">
+                <div className="text-xs font-medium text-gray-100">
+                  Léa Tremblay
                 </div>
-                <div className="text-sm text-gray-400">Bottom User Info</div>
+                <div className="text-xs text-gray-400">Lea@untitledui.com</div>
               </div>
             </div>
             <LogoutIcon></LogoutIcon>
           </div>
+        </div>
+        <div className="absolute bottom-0 right-8 p-4 flex gap-2 justify-end">
+          <button
+            className="z-20 text-sm font-medium text-gray-100"
+            onClick={() => handleTrans("en")}
+          >
+            en
+          </button>
+          <button
+            className="z-20 text-sm font-medium text-gray-100"
+            onClick={() => handleTrans("fr")}
+          >
+            fr
+          </button>
         </div>
       </div>{" "}
     </div>
