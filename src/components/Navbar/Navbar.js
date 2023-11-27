@@ -31,7 +31,7 @@ export default function Navbar() {
         <div className="logo">
           <Logo></Logo>
         </div>
-        <div className="search">
+        {/* <div className="search">
           <div className="flex items-center w-full px-5 py-2 rounded-lg bg-[#475467] text-gray-100 focus:outline-none">
             <div className="mr-2">
               <SearchIconbar></SearchIconbar>
@@ -42,7 +42,7 @@ export default function Navbar() {
               placeholder={t("search")}
             />
           </div>
-        </div>
+        </div> */}
         <div className="top-nav flex flex-col gap-2">
           <NavLink
             exact

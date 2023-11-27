@@ -59,7 +59,7 @@ const Signin = () => {
         </button>
       </div>
       <div className="signin_layout">
-        <img src={require("../../assets/images/signin.png")} alt="computer" />
+        <img src={require("../../assets/images/signin2.png")} alt="computer" />
       </div>
       <section className="page_section">
         <div className="container">

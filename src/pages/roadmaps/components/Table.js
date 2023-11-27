@@ -66,11 +66,10 @@ const Table = ({ setRmHeroDisplay }) => {
                       checked={selectedItems.length === data.length}
                     />
                   </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-3 text-left text-xs font-medium text-[#475467] uppercase tracking-wider"
-                  >
-                    {t("actionitem")} #
+                  <th scope="col" className="px-6 py-3 ">
+                    <p className="text-left text-xs font-medium text-[#475467] uppercase tracking-wider whitespace-nowrap">
+                      {t("actionitem")}
+                    </p>
                   </th>
                   <th
                     scope="col"
@@ -111,8 +110,15 @@ const Table = ({ setRmHeroDisplay }) => {
                         className="w-5 h-5 rounded-sm"
                       />
                     </td>
-                    <td className="px-6 py-3 text-left text-xs font-medium text-[#101828] tracking-wider">
-                      {item.actionItem}
+                    <td className="px-6 py-3">
+                      <button
+                        onClick={() => {
+                          setRmHeroDisplay("info");
+                        }}
+                        className="text-left text-xs font-medium text-[#101828] tracking-wider"
+                      >
+                        {item.actionItem}
+                      </button>
                     </td>
                     <td className="px-6 py-3">
                       <div className="flex gap-4 items-center">

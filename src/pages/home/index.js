@@ -20,7 +20,7 @@ const Home = () => {
             {t("youhavenotanykeymetrics")}
           </p>
         </div>
-        <div className="flex flex-col flex-wrap gap-14 px-20 py-0">
+        <div className="flex flex-col flex-wrap gap-14 px-20 pt-10">
           <div className="flex gap-24 ">
             <div className="w-1/2 flex flex-col justify-center items-center">
               <div className="icon rounded-full p-3 bg-[#ECF1FD] flex justify-center items-center border-8 border-[#F9F5FF]">
@@ -132,11 +132,13 @@ const Home = () => {
               </p>
             </div>
           </div>
-          <Link to="/dashboard/home/new ">
-            <button className="py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
-              {t("startnewassessment")}
-            </button>
-          </Link>
+          <div className="flex justify-center">
+            <Link to="/dashboard/home/new ">
+              <button className="py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
+                {t("startnewassessment")}
+              </button>
+            </Link>
+          </div>
         </div>
       </div>
     </div>

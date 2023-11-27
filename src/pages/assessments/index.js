@@ -61,7 +61,7 @@ const Assessments = ({ isOpen, setIsOpen }) => {
                   {t("educationalassessment")}
                 </p>
               </div>
-              <Link to="/dashboard/assessments/ongoing">
+              <Link to="/dashboard/assessments/ongoing/example">
                 <button className="py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
                   {t("startassessment")}
                 </button>

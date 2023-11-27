@@ -163,7 +163,7 @@ const Dashboard = () => {
                 {t("overallassessment")}
               </p>
               <div className="flex gap-4 justify-between">
-                <div className="h-80 w-80 bg-[#F9FAFB] p-4 pb-8 flex flex-col rounded-xl">
+                <div className="h-80 w-80 p-4 pb-8 flex flex-col rounded-xl">
                   <p className="text-[#101828] text-sm font-semibold font-inter text-left">
                     {t("initialscore")}
                   </p>
@@ -171,7 +171,7 @@ const Dashboard = () => {
                     <DonutChart />
                   </div>
                 </div>
-                <div className="h-80 w-80 bg-[#F9FAFB] p-4 pb-8 flex flex-col rounded-xl">
+                <div className="h-80 w-80 p-4 pb-8 flex flex-col rounded-xl">
                   <p className="text-[#101828] text-sm font-semibold font-inter text-left">
                     {t("currentscore")}
                   </p>
@@ -179,7 +179,7 @@ const Dashboard = () => {
                     <DonutChart />
                   </div>
                 </div>
-                <div className="h-80 w-80 bg-[#F9FAFB] p-4 pb-8 flex flex-col rounded-xl">
+                <div className="h-80 w-80 p-4 pb-8 flex flex-col rounded-xl">
                   <p className="text-[#101828] text-sm font-semibold font-inter text-left">
                     {t("targetscore")}
                   </p>
@@ -226,64 +226,68 @@ const Dashboard = () => {
                     {t("usedspots")}{" "}
                   </p>
                 </div>
-                <HalfDonutChart />
+                <div className="h-96 w-full flex justify-center">
+                  <HalfDonutChart />
+                </div>
               </div>
             </div>
-            <div className="rounded-xl flex justify-center w-full gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
-              <div className="w-full flex flex-col rounded-xl p-5 gap-3 items-center">
-                <div className="w-full">
+            <div className="flex gap-4">
+              <div className="rounded-xl flex justify-center w-full gap-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
+                <div className="w-full flex flex-col rounded-xl p-5 gap-3 items-center">
+                  <div className="w-full">
+                    <p className="text-[#101828] text-base font-semibold font-inter text-left">
+                      {t("comparisonscore")}
+                    </p>
+                  </div>
+                  <StackedBarChart />
+                </div>
+              </div>
+              <div className="rounded-xl flex gap-4 p-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
+                <div className="flex flex-col gap-4 w-full">
                   <p className="text-[#101828] text-base font-semibold font-inter text-left">
-                    {t("comparisonscore")}
+                    {t("actionitems")}
                   </p>
-                </div>
-                <StackedBarChart />
-              </div>
-            </div>
-            <div className="rounded-xl flex gap-4 p-4 border border-[#EAECF0] shadow-sm shadow-[#d0d0d0]">
-              <div className="flex flex-col gap-4 w-full">
-                <p className="text-[#101828] text-base font-semibold font-inter text-left">
-                  {t("actionitems")}
-                </p>
-                <div className="flex">
-                  <div className="border-[#D0D5DD] border rounded-lg flex">
-                    <button className="rounded-lg bg-[#fff7f7] py-2 px-4 text-center text-xs font-semibold font-inter text-[#F23838]">
-                      {t("highestpriority")}
+                  <div className="flex">
+                    <div className="border-[#D0D5DD] border rounded-lg flex">
+                      <button className="rounded-lg bg-[#fff7f7] py-2 px-4 text-center text-xs font-semibold font-inter text-[#F23838]">
+                        {t("highestpriority")}
+                      </button>
+                      <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#F27B38] border-l border-[#D0D5DD]">
+                        {t("highpriority")}
+                      </button>
+                      <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#C238F2] border-l border-[#D0D5DD]">
+                        {t("lowpriority")}
+                      </button>
+                      <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#06CA02] border-l border-[#D0D5DD]">
+                        {t("lowestpriority")}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="flex flex-col gap-3">
+                    <div className="bg-[#F9FAFB] rounded-lg p-3">
+                      <p className="text-[#101828] text-xs font-medium font-inter text-left">
+                        1. {t("goalaudition")}
+                      </p>
+                    </div>
+                    <div className="bg-[#F9FAFB] rounded-lg p-3">
+                      <p className="text-[#101828] text-xs font-medium font-inter text-left">
+                        2. {t("goalaudition")}
+                      </p>
+                    </div>
+                    <div className="bg-[#F9FAFB] rounded-lg p-3">
+                      <p className="text-[#101828] text-xs font-medium font-inter text-left">
+                        3. {t("goalaudition")}
+                      </p>
+                    </div>
+                    <div className="bg-[#F9FAFB] rounded-lg p-3">
+                      <p className="text-[#101828] text-xs font-medium font-inter text-left">
+                        4. {t("goalaudition")}
+                      </p>
+                    </div>
+                    <button className="mt-4 py-3 px-6 w-full rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
+                      {t("viewall")}
                     </button>
-                    <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#F27B38] border-l border-[#D0D5DD]">
-                      {t("highpriority")}
-                    </button>
-                    <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#C238F2] border-l border-[#D0D5DD]">
-                      {t("lowpriority")}
-                    </button>
-                    <button className="py-2 px-4 text-center text-xs font-semibold font-inter text-[#06CA02] border-l border-[#D0D5DD]">
-                      {t("lowestpriority")}
-                    </button>
                   </div>
-                </div>
-                <div className="flex flex-col gap-3">
-                  <div className="bg-[#F9FAFB] rounded-lg p-3">
-                    <p className="text-[#101828] text-xs font-medium font-inter text-left">
-                      {t("goalaudition")}
-                    </p>
-                  </div>
-                  <div className="bg-[#F9FAFB] rounded-lg p-3">
-                    <p className="text-[#101828] text-xs font-medium font-inter text-left">
-                      {t("goalaudition")}
-                    </p>
-                  </div>
-                  <div className="bg-[#F9FAFB] rounded-lg p-3">
-                    <p className="text-[#101828] text-xs font-medium font-inter text-left">
-                      {t("goalaudition")}
-                    </p>
-                  </div>
-                  <div className="bg-[#F9FAFB] rounded-lg p-3">
-                    <p className="text-[#101828] text-xs font-medium font-inter text-left">
-                      {t("goalaudition")}
-                    </p>
-                  </div>
-                  <button className="mt-4 py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
-                    {t("viewall")}
-                  </button>
                 </div>
               </div>
             </div>

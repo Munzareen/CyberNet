@@ -196,6 +196,8 @@ i18n.use(initReactI18next).init({
         viewcomments: "View Comments",
         send: "Send",
         entercomment: "Enter your comment here",
+        enteryouremail: "Enter your email",
+
         finishednotes:
           "I’ve finished adding my notes. Happy for us to review whenever you’re ready!",
         dismiss: "Dismiss",

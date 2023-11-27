@@ -2,16 +2,8 @@ import React from "react";
 import "./input-field.css";
 
 const InputField = (props) => {
-  const {
-    label,
-    value,
-    onChange,
-    type,
-    placeholder,
-    name,
-    required,
-    note,
-  } = props;
+  const { label, value, onChange, type, placeholder, name, required, note } =
+    props;
   return (
     <div className="input_field_wrapper">
       <label htmlFor={name} className="label">
