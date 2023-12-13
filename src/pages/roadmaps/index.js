@@ -17,8 +17,10 @@ const Roadmaps = () => {
 
   return (
     <>
-      <div className="r-assessments-initial bg-[#14143E] pt-4 w-full">
-        <div className="bg-white rounded-tl-3xl py-4 h-full flex flex-col">
+      <div className="bg-[#14143E]  w-full h-screen overflow-y-hidden relative">
+        <div className="bg-[#14143E] w-full h-4"></div>
+
+        <div className="bg-white rounded-tl-3xl py-4 flex flex-col overflow-y-hidden absolute h-full w-full">
           {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
           <div className="mt-5 flex flex-row gap-4 px-8">
             <button className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
@@ -98,135 +100,137 @@ const Roadmaps = () => {
               </button>
             </div>
           </div>
-          {priority === "high" ? (
-            <div className="flex flex-col p-8 gap-5">
-              <div className="flex justify-between">
-                <p className="text-[#344054] text-base font-semibold font-inter">
-                  {t("highpriorityroadmaps")}
-                </p>
-                <div className="flex gap-5">
-                  <div className="search">
-                    <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
-                      <div className="mr-2">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 18 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
-                            stroke="#667085"
-                            stroke-width="1.66667"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
+          <div className="overflow-y-scroll">
+            {priority === "high" ? (
+              <div className="flex flex-col p-8 gap-5">
+                <div className="flex justify-between">
+                  <p className="text-[#344054] text-base font-semibold font-inter">
+                    {t("highpriorityroadmaps")}
+                  </p>
+                  <div className="flex gap-5">
+                    <div className="search">
+                      <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
+                        <div className="mr-2">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                              stroke="#667085"
+                              stroke-width="1.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
+                          placeholder={t("search")}
+                        />
                       </div>
-                      <input
-                        type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
-                        placeholder={t("search")}
-                      />
+                    </div>
+                    <div className="dropdown">
+                      <RoadmapDropdown />
                     </div>
                   </div>
-                  <div className="dropdown">
-                    <RoadmapDropdown />
-                  </div>
+                </div>
+                <div className="table">
+                  <Table setRmHeroDisplay={setRmHeroDisplay} />
                 </div>
               </div>
-              <div className="table">
-                <Table setRmHeroDisplay={setRmHeroDisplay} />
-              </div>
-            </div>
-          ) : priority === "medium" ? (
-            <div className="flex flex-col p-8 gap-5">
-              <div className="flex justify-between">
-                <p className="text-[#344054] text-base font-semibold font-inter">
-                  {t("mediumpriorityroadmaps")}
-                </p>
-                <div className="flex gap-5">
-                  <div className="search">
-                    <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
-                      <div className="mr-2">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 18 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
-                            stroke="#667085"
-                            stroke-width="1.66667"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
+            ) : priority === "medium" ? (
+              <div className="flex flex-col p-8 gap-5">
+                <div className="flex justify-between">
+                  <p className="text-[#344054] text-base font-semibold font-inter">
+                    {t("mediumpriorityroadmaps")}
+                  </p>
+                  <div className="flex gap-5">
+                    <div className="search">
+                      <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
+                        <div className="mr-2">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                              stroke="#667085"
+                              stroke-width="1.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
+                          placeholder="Search"
+                        />
                       </div>
-                      <input
-                        type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
-                        placeholder="Search"
-                      />
+                    </div>
+                    <div className="dropdown">
+                      <RoadmapDropdown />
                     </div>
                   </div>
-                  <div className="dropdown">
-                    <RoadmapDropdown />
-                  </div>
+                </div>
+                <div className="table">
+                  <TableMedium />
                 </div>
               </div>
-              <div className="table">
-                <TableMedium />
-              </div>
-            </div>
-          ) : priority === "low" ? (
-            <div className="flex flex-col p-8 gap-5">
-              <div className="flex justify-between">
-                <p className="text-[#344054] text-base font-semibold font-inter">
-                  {t("lowpriorityroadmaps")}
-                </p>
-                <div className="flex gap-5">
-                  <div className="search">
-                    <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
-                      <div className="mr-2">
-                        <svg
-                          width="18"
-                          height="18"
-                          viewBox="0 0 18 18"
-                          fill="none"
-                          xmlns="http://www.w3.org/2000/svg"
-                        >
-                          <path
-                            d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
-                            stroke="#667085"
-                            stroke-width="1.66667"
-                            stroke-linecap="round"
-                            stroke-linejoin="round"
-                          />
-                        </svg>
+            ) : priority === "low" ? (
+              <div className="flex flex-col p-8 gap-5">
+                <div className="flex justify-between">
+                  <p className="text-[#344054] text-base font-semibold font-inter">
+                    {t("lowpriorityroadmaps")}
+                  </p>
+                  <div className="flex gap-5">
+                    <div className="search">
+                      <div className="shadow-sm shadow-gray-200 border border-[#D0D5DD] flex items-center w-60 px-5 py-2 rounded-xl bg-[#FFFFFF] text-[#667085] focus:outline-none h-10">
+                        <div className="mr-2">
+                          <svg
+                            width="18"
+                            height="18"
+                            viewBox="0 0 18 18"
+                            fill="none"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path
+                              d="M16.5 16.5L13.5834 13.5833M15.6667 8.58333C15.6667 12.4954 12.4954 15.6667 8.58333 15.6667C4.67132 15.6667 1.5 12.4954 1.5 8.58333C1.5 4.67132 4.67132 1.5 8.58333 1.5C12.4954 1.5 15.6667 4.67132 15.6667 8.58333Z"
+                              stroke="#667085"
+                              stroke-width="1.66667"
+                              stroke-linecap="round"
+                              stroke-linejoin="round"
+                            />
+                          </svg>
+                        </div>
+                        <input
+                          type="text"
+                          className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
+                          placeholder="Search"
+                        />
                       </div>
-                      <input
-                        type="text"
-                        className="w-full bg-[#FFFFFF] text-[#667085] font-inter font-medium text-sm leading-6 focus:outline-none"
-                        placeholder="Search"
-                      />
+                    </div>
+                    <div className="dropdown">
+                      <RoadmapDropdown />
                     </div>
                   </div>
-                  <div className="dropdown">
-                    <RoadmapDropdown />
-                  </div>
+                </div>
+                <div className="table">
+                  <Table />
                 </div>
               </div>
-              <div className="table">
-                <Table />
-              </div>
-            </div>
-          ) : (
-            <></>
-          )}
+            ) : (
+              <></>
+            )}
+          </div>
         </div>
       </div>
 

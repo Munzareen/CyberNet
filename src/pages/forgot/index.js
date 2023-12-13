@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./signin.css";
+import "./forgot.css";
 import logo from "../../assets/icons/logoDark.svg";
 import InputField from "../../components/form/inputField";
 import Button from "../../components/form/button";
@@ -8,7 +8,7 @@ import Footer from "../../components/layout/footer";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 
-const Signin = () => {
+const Forgot = () => {
   const { t, i18n } = useTranslation();
 
   const handleTrans = (code) => {
@@ -18,7 +18,6 @@ const Signin = () => {
   const navigate = useNavigate();
   const formInitialState = {
     email: "",
-    password: "",
   };
 
   const [formControl, setFormControl] = useState(formInitialState);
@@ -58,13 +57,13 @@ const Signin = () => {
           French
         </button>
       </div>
-      <div className="signin_layout">
+      <div className="forgot_layout">
         <img src={require("../../assets/images/signin2.png")} alt="computer" />
       </div>
       <section className="page_section">
         <div className="container">
           <img src={logo} alt="brand logo" />
-          <h2>{t("login")}</h2>
+          <h2>{t("forgot")}</h2>
           <form className="form">
             <InputField
               label={"Email"}
@@ -75,33 +74,9 @@ const Signin = () => {
               value={formControl.email}
               onChange={handleChange}
             />
-            <InputField
-              label={t("password")}
-              required
-              placeholder={t("enterpassword")}
-              type="password"
-              name="password"
-              value={formControl.password}
-              onChange={handleChange}
-            />
-            <div className="signin_content">
-              <div>
-                <input
-                  type="checkbox"
-                  checked={isChecked}
-                  onChange={handleCheckboxChange}
-                />
-                <label className="label">{t("remember")}</label>
-              </div>
-              <Link to="/forgot">
-                <p>
-                  <span>{t("forgot")}</span>
-                </p>
-              </Link>
-            </div>
             <Link to="/dashboard/">
               {/* <Button value="Sign in" onClick={handleSubmit} /> */}
-              <Button value={t("signin")}></Button>
+              <Button value={t("forgot")}></Button>
             </Link>
             <p className="signup_content">
               {t("donthaveanaccount")}
@@ -115,4 +90,4 @@ const Signin = () => {
   );
 };
 
-export default Signin;
+export default Forgot;

@@ -207,6 +207,7 @@ i18n.use(initReactI18next).init({
         systemreply: "System reply on question",
         finishednotes:
           "I’ve finished adding my notes. Happy for us to review whenever you’re ready!",
+        loadmore: "Load More.",
       },
     },
     fr: {
@@ -413,6 +414,7 @@ i18n.use(initReactI18next).init({
         systemreply: "Réponse du système à la question",
         finishednotes:
           "J'ai terminé d'ajouter mes notes. Heureux de nous revoir quand vous êtes prêt!",
+        loadmore: "Charger plus.",
       },
     },
   },

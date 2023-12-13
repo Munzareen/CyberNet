@@ -4,6 +4,7 @@ import Drawer from "../../components/drawer/Drawer";
 import AssignDropdown from "../../components/dropdown/AssignDropdown";
 import AssignExampleDropdown from "../../components/dropdown/AssignExampleDropdown";
 import { useTranslation } from "react-i18next";
+import InfoIcon from "../../components/icons/infoIcon";
 
 const AssessOngoingExample = () => {
   const { t } = useTranslation();
@@ -90,21 +91,7 @@ const AssessOngoingExample = () => {
                   </div>
                   <div className="flex gap-2 items-center h-6">
                     <div>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                          stroke="#98A2B3"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <InfoIcon></InfoIcon>
                     </div>
                     <AssignExampleDropdown />
                   </div>
@@ -143,23 +130,9 @@ const AssessOngoingExample = () => {
                   </div>
                   <div className="flex gap-2 items-center h-6">
                     <div>
-                      <svg
-                        width="16"
-                        height="16"
-                        viewBox="0 0 16 16"
-                        fill="none"
-                        xmlns="http://www.w3.org/2000/svg"
-                      >
-                        <path
-                          d="M8 10.8V8M8 5.2H8.007M15 8C15 11.866 11.866 15 8 15C4.13401 15 1 11.866 1 8C1 4.13401 4.13401 1 8 1C11.866 1 15 4.13401 15 8Z"
-                          stroke="#98A2B3"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
-                        />
-                      </svg>
+                      <InfoIcon></InfoIcon>
                     </div>
-                    <AssignDropdown />
+                    <AssignExampleDropdown />
                   </div>
                 </div>
                 <div className="flex gap-3">
@@ -186,6 +159,9 @@ const AssessOngoingExample = () => {
                 </div>
               </div>
             </div>
+            <button className="m-3 py-3 px-6 w-64 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
+              {t("loadmore")}
+            </button>
           </div>
         </div>
       </div>

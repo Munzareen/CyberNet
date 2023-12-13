@@ -133,7 +133,7 @@ const Home = () => {
             </div>
           </div>
           <div className="flex justify-center">
-            <Link to="/dashboard/home/new ">
+            <Link to="/dashboard/assessments/ongoing/example ">
               <button className="py-3 px-6 w-80 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
                 {t("startnewassessment")}
               </button>

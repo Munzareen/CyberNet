@@ -26,7 +26,7 @@ export default function Navbar() {
   const { setIsSupportOpen } = useContext(MyContext);
 
   return (
-    <div className="l-main-nav min-h-screen w-[480px] flex flex-col justify-between bg-[#14143E] text-gray-50">
+    <div className="l-main-nav min-h-screen flex flex-col justify-between bg-[#14143E] text-gray-50">
       <div className="flex flex-col justify-center pt-8 px-8 gap-3">
         <div className="logo">
           <Logo></Logo>
@@ -46,7 +46,7 @@ export default function Navbar() {
         <div className="top-nav flex flex-col gap-2">
           <NavLink
             exact
-            to="/dashboard/home"
+            to="/dashboard/home/new"
             className="py-2 px-3 flex gap-2 hover:bg-[#37375B] hover:rounded-xl"
             activeClassName="active"
           >
@@ -133,7 +133,7 @@ export default function Navbar() {
           <div className="image p-2 bg-gray-800 rounded-full text-gray-100">
             +++
           </div>
-          <div className="flex justify-between items-center w-full">
+          <div className="flex justify-between items-center w-full gap-4">
             <div className="text-container flex flex-col ml-4">
               <div className="font-inter font-medium text-sm text-gray-100">
                 <div className="text-xs font-medium text-gray-100">

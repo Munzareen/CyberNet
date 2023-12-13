@@ -18,13 +18,14 @@ import Roadmaps from "./pages/roadmaps";
 import React from "react";
 import DashboardLayout from "./layouts/DashboardLayout";
 import AssessmentsCompleted from "./pages/assessmentsCompleted";
+import Forgot from "./pages/forgot";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/" element={<RootLayout />}>
       <Route path="dashboard/" element={<DashboardLayout />}>
+        <Route index element={<Home />} />
         <Route path="home/">
-          <Route index element={<Home />} />
           <Route path="new" element={<Dashboard />} />
         </Route>
         <Route path="assessments/">
@@ -38,6 +39,7 @@ const router = createBrowserRouter(
 
       <Route path="" element={<Signin />} />
       <Route path="signup" element={<Signup />} />
+      <Route path="forgot" element={<Forgot />} />
       <Route path="company-details" element={<CompanyDetails />} />
     </Route>
   )
