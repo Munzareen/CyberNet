@@ -4,11 +4,25 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import "./i18n";
+import { Toaster } from "react-hot-toast";
+import { Provider } from "react-redux";
+import store from "./store/store";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <App />
+      <Toaster
+        position="bottom-right"
+        toastOptions={{
+          className: "",
+          style: {
+            fontWeight: 500,
+          },
+        }}
+      />
+    </Provider>
   </React.StrictMode>
 );
 

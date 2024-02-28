@@ -67,9 +67,9 @@ const Dashboard = () => {
                       <path
                         d="M5 8.5V1.5M5 1.5L1.5 5M5 1.5L8.5 5"
                         stroke="#12B76A"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                     <p className="text-[#027A48] text-xs text-left font-medium font-inter">
@@ -100,9 +100,9 @@ const Dashboard = () => {
                       <path
                         d="M5 8.5V1.5M5 1.5L1.5 5M5 1.5L8.5 5"
                         stroke="#12B76A"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                     <p className="text-[#027A48] text-xs text-left font-medium font-inter">
@@ -133,9 +133,9 @@ const Dashboard = () => {
                         <path
                           d="M5 8.5V1.5M5 1.5L1.5 5M5 1.5L8.5 5"
                           stroke="#12B76A"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
-                          stroke-linejoin="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
                         />
                       </svg>
                       <p className="text-[#027A48] text-xs text-left font-medium font-inter">

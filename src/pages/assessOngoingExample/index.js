@@ -1,169 +1,126 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Navbar from "../../components/Navbar/Navbar";
 import Drawer from "../../components/drawer/Drawer";
 import AssignDropdown from "../../components/dropdown/AssignDropdown";
 import AssignExampleDropdown from "../../components/dropdown/AssignExampleDropdown";
 import { useTranslation } from "react-i18next";
 import InfoIcon from "../../components/icons/infoIcon";
-
+import { Link, useParams } from "react-router-dom";
+import {
+  useGetQuestionListByAssessmentQuery,
+  useGetUserOngoingAssessmentListQuery,
+} from "../../store/services/assessmentsService";
+import ActiveQuizNavElement from "./ActiveQuizNavElement";
+import QuizSubsectionNavElement from "./QuizSubsectionNavElement";
+import QuizQuestionElement from "./QuizQuestionElement";
+import Spinner from "../signin/spinner";
 const AssessOngoingExample = () => {
+  const [activeQuizSection, setActiveQuizSection] = useState(1);
+  const { id } = useParams();
   const { t } = useTranslation();
+  const {
+    isLoading,
+    isSuccess,
+    data,
+    error,
+    isError,
+    isFetching: isQuestionFetching,
+  } = useGetQuestionListByAssessmentQuery(id);
+  const {
+    isLoading: isLoadingA,
+    isSuccess: isSuccessA,
+    data: dataA,
+    error: errorA,
+    isError: isErrorA,
+    isFetching: isUserAssessmentFetching,
+  } = useGetUserOngoingAssessmentListQuery();
 
+  const isLoadingOmega = isQuestionFetching || isUserAssessmentFetching;
+  useEffect(() => {
+    if (isSuccess && data) {
+      setActiveQuizSection(data?.data.subDepartments[0]?.subDepartmentId);
+    }
+  }, [isSuccess, data]);
   return (
     <div className="r-assessments-initial bg-[#14143E]  w-full h-screen overflow-y-hidden relative">
       <div className="bg-[#14143E] w-full h-4"></div>
       <div className="bg-white rounded-tl-3xl py-4 flex flex-col overflow-y-scroll absolute h-full w-full">
         {/* <div className="text-slate-700 font-medium ">Assessments page</div> */}
-        <div className="my-5 flex flex-row gap-4 px-8">
-          <div className="py-2 px-3 bg-[#E5E8FD] rounded-2xl">
-            <p className="text-[#3855F2] text-sm font-semibold font-inter">
-              TVM 0/712
-            </p>
+        {isLoading || isLoadingA || isLoadingOmega ? (
+          <div className="m-8 text-[#101828] text-2xl font-bold font-inter ">
+            Loading...
           </div>
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-sm font-semibold font-inter">AVA (12/62)</p>
-          </div>
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-sm font-semibold font-inter">MKR (0/45)</p>
-          </div>
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-sm font-semibold font-inter">APT (0/234) </p>
-          </div>
-          <div className="py-2 px-3 hover:bg-[#E5E8FD] rounded-2xl">
-            <p className="text-sm font-semibold font-inter">LRC (0/45) </p>
-          </div>
-        </div>
-        <div className="bg-[#F9F9F9] flex flex-col p-8 gap-3">
-          <div className="flex gap-6 items-center">
-            <p className="text-[#101828] text-2xl font-bold font-inter">
-              {t("tvm")}
-            </p>
-            <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#ECF1FD]">
-              <p className="text-xs text-[#3855F2] whitespace-nowrap">
-                712 Questions
-              </p>
-            </div>{" "}
-          </div>
-          <div className="flex gap-2 border border-[#F2F4F7] rounded-md p-1">
-            <div className="bg-white shadow-sm shadow-[#979797] rounded-md flex justify-center items-center py-2 px-3">
-              <p className="text-[#344054] text-xs font-semibold font-inter">
-                {t("manageitot")}
-              </p>
-              <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#ECF1FD]">
-                <p className="text-xs text-[#3855F2] whitespace-nowrap">1/12</p>
-              </div>{" "}
-            </div>
-            <div className="rounded-md flex justify-center items-center py-2 px-3">
-              <p className="text-[#667085] text-xs font-semibold font-inter">
-                {t("informationasset")}
-              </p>
-              <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#F2F4F7]">
-                <p className="text-xs text-[#344054] whitespace-nowrap">0/65</p>
-              </div>{" "}
-            </div>
-            <div className="rounded-md flex justify-center items-center py-2 px-3">
-              <p className="text-[#667085] text-xs font-semibold font-inter">
-                {t("manageconfiguration")}
-              </p>
-              <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#F2F4F7]">
-                <p className="text-xs text-[#344054] whitespace-nowrap">0/14</p>
-              </div>{" "}
-            </div>
-            <div className="rounded-md flex justify-center items-center py-2 px-3">
-              <p className="text-[#667085] text-xs font-semibold font-inter">
-                {t("manageactivities")}
-              </p>
-              <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#F2F4F7]">
-                <p className="text-xs text-[#344054] whitespace-nowrap">0/9</p>
-              </div>{" "}
-            </div>
-          </div>
-        </div>
-        <div className="flex flex-col p-8 gap-5 ">
-          <div className="flex flex-col gap-6 ">
-            <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
-              <div className="flex w-full flex-col gap-6">
-                <div className="flex w-full justify-between">
-                  <div className="flex">
-                    <p className="text-[#101828] text-base font-semibold font-inter text-left">
-                      1 . {t("itotassets")}
+        ) : (
+          <>
+            {isLoading && <Spinner />}
+            {!isLoading && (
+              <>
+                <div className="my-5 flex flex-row gap-4 px-8">
+                  {dataA?.data.map((item, index) => (
+                    <Link
+                      key={index}
+                      idd={item.totalMCQCount}
+                      to={`/dashboard/assessments/ongoing/example/${item.departmentId}`}
+                    >
+                      <ActiveQuizNavElement
+                        name={item.departmentName}
+                        questions={item.totalMCQCount}
+                        isActive={item.departmentId == id}
+                      />
+                    </Link>
+                  ))}
+                </div>
+                <div className="bg-[#F9F9F9] flex flex-col p-8 gap-3">
+                  <div className="flex gap-6 items-center">
+                    <p className="text-[#101828] text-2xl font-bold font-inter">
+                      {dataA && id != 5
+                        ? dataA?.data[id - 1].departmentName
+                        : dataA && id == 5
+                        ? dataA?.data[3].departmentName
+                        : t("tvm")}
                     </p>
+                    <div className="flex justify-center items-center ml-4 p-2 h-min w-min rounded-full bg-[#ECF1FD]">
+                      <p className="text-xs text-[#3855F2] whitespace-nowrap">
+                        712 Questions
+                      </p>
+                    </div>{" "}
                   </div>
-                  <div className="flex gap-2 items-center h-6">
-                    <div>
-                      <InfoIcon></InfoIcon>
-                    </div>
-                    <AssignExampleDropdown />
+                  <div className="flex gap-2 border border-[#F2F4F7] rounded-md p-1">
+                    {data?.data.subDepartments.map((item, index) => (
+                      <QuizSubsectionNavElement
+                        key={index}
+                        questions={item.mcQs.length}
+                        name={item.subDepartmentName}
+                        isActive={item.subDepartmentId == activeQuizSection}
+                        onClick={() =>
+                          setActiveQuizSection(item.subDepartmentId)
+                        }
+                      />
+                    ))}
                   </div>
                 </div>
-                <div className="flex gap-3">
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("notimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("partiallyimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD] bg-[#ECF1FD]">
-                    <p className="text-[#3855F2] text-xs font-semibold font-inter">
-                      {t("largelyimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("fullyimplemented")}
-                    </p>
+                <div className="flex flex-col p-8 gap-5">
+                  <div className="flex flex-col gap-6">
+                    {data?.data.subDepartments
+                      .find(
+                        (item) => item.subDepartmentId === activeQuizSection
+                      )
+                      ?.mcQs.map((item1, index) => (
+                        <QuizQuestionElement
+                          key={index}
+                          index={index}
+                          item={item1}
+                        />
+                      ))}
+                    <button className="m-3 py-3 px-6 w-64 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
+                      {t("loadmore")}
+                    </button>
                   </div>
                 </div>
-              </div>
-            </div>
-            <div className="rounded-xl flex p-5 justify-between border border-[#EAECF0] shadow-sm shadow-[#d0d0d0] w-full">
-              <div className="flex w-full flex-col gap-6">
-                <div className="flex w-full justify-between">
-                  <div className="flex">
-                    <p className="text-[#101828] text-base font-semibold font-inter text-left">
-                      1 . {t("itotassets")}
-                    </p>
-                  </div>
-                  <div className="flex gap-2 items-center h-6">
-                    <div>
-                      <InfoIcon></InfoIcon>
-                    </div>
-                    <AssignExampleDropdown />
-                  </div>
-                </div>
-                <div className="flex gap-3">
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("notimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("partiallyimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD] bg-[#ECF1FD]">
-                    <p className="text-[#3855F2] text-xs font-semibold font-inter">
-                      {t("largelyimplemented")}
-                    </p>
-                  </div>
-                  <div className="rounded-xl py-2 px-4 shadow-sm shadow-[#d0d0d0] border border-[#D0D5DD]">
-                    <p className="text-[#344054] text-xs font-semibold font-inter">
-                      {t("fullyimplemented")}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <button className="m-3 py-3 px-6 w-64 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter">
-              {t("loadmore")}
-            </button>
-          </div>
-        </div>
+              </>
+            )}
+          </>
+        )}
       </div>
     </div>
   );

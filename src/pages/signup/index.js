@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./signup.css";
 
@@ -12,8 +12,26 @@ import SignupLayout from "../../components/layout/signup-layout";
 
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import toast from "react-hot-toast";
 
+import { useSignUpUserMutation } from "../../store/services/signupService";
+import { useSigninUserMutation } from "../../store/services/authService";
+import Cookies from "js-cookie";
+import Spinner from "../signin/spinner";
 const Signup = () => {
+  const [signupUser, { data, error, isError, isLoading, isSuccess }] =
+    useSignUpUserMutation();
+  const [
+    signinUser,
+    {
+      data: signData,
+      error: signError,
+      isLoading: signLoading,
+      isSuccess: signIsSuccess,
+      isError: signIsError,
+    },
+  ] = useSigninUserMutation();
+
   const { t, i18n } = useTranslation();
 
   const handleTrans = (code) => {
@@ -37,11 +55,55 @@ const Signup = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    navigate("/company-details");
-
     console.log(formControl);
-  };
+    if (formControl.password == formControl.confirmPassword) {
+      signupUser({
+        fullName: formControl.name,
+        emailAddress: formControl.email,
+        password: formControl.password,
+      });
+      // navigate("/company-details");
 
+      console.log({
+        fullName: formControl.name,
+        emailAddress: formControl.email,
+        password: formControl.password,
+      });
+    }
+  };
+  useEffect(() => {
+    if (isSuccess && data.isSuccess) {
+      console.log(data);
+      // toast.success(`Account made successfully`);
+      signinUser({
+        emailAddress: formControl.email,
+        password: formControl.password,
+      });
+
+      // navigate("/");
+    } else if (isSuccess) {
+      console.log(data);
+      toast.error(`${data.message}`);
+    }
+  }, [isSuccess]);
+  useEffect(() => {
+    if (signIsSuccess && signData.isSuccess) {
+      console.log(signData);
+      Cookies.set("access_token", signData.data);
+      toast.success(`Account made successfully`);
+
+      navigate("/company-details");
+    } else if (signIsSuccess) {
+      console.log(signData);
+      toast.error(`${signData.message}`);
+    }
+  }, [signIsSuccess]);
+  useEffect(() => {
+    if (isError) {
+      console.log(error);
+      // navigate("/company-details");
+    }
+  }, [isError]);
   return (
     <>
       <div className="absolute top-0 left-0 m-8 flex gap-2">
@@ -103,7 +165,10 @@ const Signup = () => {
               value={formControl.confirmPassword}
               onChange={handleChange}
             />
-            <Button value={t("getstarted")} onClick={handleSubmit} />
+            <Button
+              value={isLoading || signLoading ? <Spinner /> : t("signup")}
+              onClick={handleSubmit}
+            />
             <img src={arrow} alt="arrow-icon" className="button_arrow" />
             <p className="signup_content">
               {t("alreadyhaveaccount")}

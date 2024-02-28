@@ -12,8 +12,8 @@ export default function CommentsIcon() {
       <path
         d="M6.4 7.22222H13.6M6.4 10.7778H10M9.1 1H10.9C15.3735 1 19 4.58172 19 9C19 13.4183 15.3735 17 10.9 17H4.6C2.61177 17 1 15.4081 1 13.4444V9C1 4.58172 4.62649 1 9.1 1Z"
         stroke="#D0D5DD"
-        stroke-width="2"
-        stroke-linecap="round"
+        strokeWidth="2"
+        strokeLinecap="round"
       />
     </svg>
   );

@@ -10,7 +10,7 @@ export default function Logo() {
       xmlns="http://www.w3.org/2000/svg"
     >
       <g filter="url(#filter0_dd_1_12365)">
-        <g clip-path="url(#clip0_1_12365)">
+        <g clipPath="url(#clip0_1_12365)">
           <rect x="3" y="2" width="32" height="32" rx="8" fill="white" />
           <rect
             x="3"
@@ -21,20 +21,20 @@ export default function Logo() {
             fill="url(#paint0_linear_1_12365)"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M19 4.03861C11.2895 4.03861 5.03885 10.2892 5.03885 17.9998C5.03885 25.7103 11.2895 31.9609 19 31.9609C26.7106 31.9609 32.9612 25.7103 32.9612 17.9998C32.9612 10.2892 26.7106 4.03861 19 4.03861ZM4.96118 17.9998C4.96118 10.2463 11.2466 3.96094 19 3.96094C26.7535 3.96094 33.0389 10.2463 33.0389 17.9998C33.0389 25.7532 26.7535 32.0386 19 32.0386C11.2466 32.0386 4.96118 25.7532 4.96118 17.9998Z"
             fill="#D0D5DD"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M19 14.0777C16.8338 14.0777 15.0777 15.8338 15.0777 18C15.0777 20.1662 16.8338 21.9223 19 21.9223C21.1662 21.9223 22.9223 20.1662 22.9223 18C22.9223 15.8338 21.1662 14.0777 19 14.0777ZM15 18C15 15.7909 16.7909 14 19 14C21.2091 14 23 15.7909 23 18C23 20.2091 21.2091 22 19 22C16.7909 22 15 20.2091 15 18Z"
             fill="#D0D5DD"
           />
           <path
-            fill-rule="evenodd"
-            clip-rule="evenodd"
+            fillRule="evenodd"
+            clipRule="evenodd"
             d="M19 15.3199C17.5201 15.3199 16.3204 16.5196 16.3204 17.9995C16.3204 19.4794 17.5201 20.6791 19 20.6791C20.4799 20.6791 21.6796 19.4794 21.6796 17.9995C21.6796 16.5196 20.4799 15.3199 19 15.3199ZM16.2427 17.9995C16.2427 16.4767 17.4772 15.2422 19 15.2422C20.5228 15.2422 21.7573 16.4767 21.7573 17.9995C21.7573 19.5223 20.5228 20.7568 19 20.7568C17.4772 20.7568 16.2427 19.5223 16.2427 17.9995Z"
             fill="#D0D5DD"
           />
@@ -70,7 +70,7 @@ export default function Logo() {
             <path
               d="M3 18H35V21.2C35 25.6804 35 27.9206 34.1281 29.6319C33.3611 31.1372 32.1372 32.3611 30.6319 33.1281C28.9206 34 26.6804 34 22.2 34H15.8C11.3196 34 9.07937 34 7.36808 33.1281C5.86278 32.3611 4.63893 31.1372 3.87195 29.6319C3 27.9206 3 25.6804 3 21.2V18Z"
               fill="white"
-              fill-opacity="0.2"
+              fillOpacity="0.2"
             />
           </g>
         </g>
@@ -81,7 +81,7 @@ export default function Logo() {
           height="31.8"
           rx="7.9"
           stroke="#D0D5DD"
-          stroke-width="0.2"
+          strokeWidth="0.2"
         />
       </g>
       <path
@@ -96,9 +96,9 @@ export default function Logo() {
           width="38"
           height="38"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -147,9 +147,9 @@ export default function Logo() {
           width="22"
           height="22"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feColorMatrix
             in="SourceAlpha"
             type="matrix"
@@ -198,9 +198,9 @@ export default function Logo() {
           width="42"
           height="26"
           filterUnits="userSpaceOnUse"
-          color-interpolation-filters="sRGB"
+          colorInterpolationFilters="sRGB"
         >
-          <feFlood flood-opacity="0" result="BackgroundImageFix" />
+          <feFlood floodOpacity="0" result="BackgroundImageFix" />
           <feGaussianBlur in="BackgroundImageFix" stdDeviation="2.5" />
           <feComposite
             in2="SourceAlpha"
@@ -222,8 +222,8 @@ export default function Logo() {
           y2="34"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="white" />
-          <stop offset="1" stop-color="#D0D5DD" />
+          <stop stopColor="white" />
+          <stop offset="1" stopColor="#D0D5DD" />
         </linearGradient>
         <linearGradient
           id="paint1_linear_1_12365"
@@ -233,8 +233,8 @@ export default function Logo() {
           y2="10"
           gradientUnits="userSpaceOnUse"
         >
-          <stop stop-color="#53389E" />
-          <stop offset="1" stop-color="#6941C6" />
+          <stop stopColor="#53389E" />
+          <stop offset="1" stopColor="#6941C6" />
         </linearGradient>
         <clipPath id="clip0_1_12365">
           <rect x="3" y="2" width="32" height="32" rx="8" fill="white" />

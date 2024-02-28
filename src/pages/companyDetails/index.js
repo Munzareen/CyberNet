@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 
 import "./company-details.css";
 
@@ -11,8 +11,14 @@ import Button from "../../components/form/button";
 import Footer from "../../components/layout/footer";
 import { useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
+import { useCreateCompanyMutation } from "../../store/services/createCompanyService";
+import Cookies from "js-cookie";
+import Spinner from "../signin/spinner";
+import toast from "react-hot-toast";
 
 const CompanyDetails = () => {
+  const [createCompany, { data, error, isError, isLoading, isSuccess }] =
+    useCreateCompanyMutation();
   const navigate = useNavigate();
   const { t, i18n } = useTranslation();
 
@@ -38,10 +44,47 @@ const CompanyDetails = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("logedIn", true);
-    navigate("/");
+    console.log("Input into createCompany is:");
+    console.log({
+      companyName: formControl.name,
+      countryId: 0, //TEMP FIX WHEN API WORKS
+      stateId: 0,
+      cityId: 0,
+      zipCode: formControl.zipcode,
+      address: formControl.address,
+    });
+    // localStorage.setItem("logedIn", true);
+    createCompany({
+      companyName: formControl.name,
+      countryId: 0, //TEMP FIX WHEN API WORKS
+      stateId: 0,
+      cityId: 0,
+      zipCode: formControl.zipcode,
+      address: formControl.address,
+    });
     console.log(formControl);
   };
+  useEffect(() => {
+    if (isSuccess && data.isSuccess) {
+      console.log("BINGO");
+      console.log(data);
+      toast.success(`Company record added successfully.`);
+
+      navigate("/dashboard");
+    } else if (isSuccess) {
+      toast.success(`Error. ${JSON.stringify(data)}`);
+    }
+  }, [isSuccess]);
+  useEffect(() => {
+    if (isError) {
+      console.log(error);
+      toast.success(`Error. ${error.message}`);
+    }
+  }, [isError]);
+
+  useEffect(() => {
+    console.log(Cookies.get("access_token"));
+  }, []);
   return (
     <>
       <div className="absolute top-0 left-0 m-8 flex gap-2">
@@ -120,7 +163,10 @@ const CompanyDetails = () => {
               value={formControl.address}
               onChange={handleChange}
             />
-            <Button value={t("continue")} onClick={handleSubmit} />
+            <Button
+              value={isLoading ? <Spinner /> : t("continue")}
+              onClick={handleSubmit}
+            />
             <img
               src={arrow}
               alt="arrow-icon"

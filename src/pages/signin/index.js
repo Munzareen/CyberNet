@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import "./signin.css";
 import logo from "../../assets/icons/logoDark.svg";
 import InputField from "../../components/form/inputField";
@@ -7,8 +7,15 @@ import { useNavigate } from "react-router-dom";
 import Footer from "../../components/layout/footer";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
-
+import { useSigninUserMutation } from "../../store/services/authService";
+import Cookies from "js-cookie";
+import toast from "react-hot-toast";
+import Spinner from "./spinner";
 const Signin = () => {
+  const ref = useRef(null);
+  const [signinUser, { data, error, isLoading, isSuccess, isError }] =
+    useSigninUserMutation();
+
   const { t, i18n } = useTranslation();
 
   const handleTrans = (code) => {
@@ -26,20 +33,36 @@ const Signin = () => {
 
   const handleChange = (e) => {
     const { name, value } = e.target;
+    console.log(formControl);
     setFormControl((prev) => ({ ...prev, [name]: value }));
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
-    localStorage.setItem("logedIn", true);
-
-    navigate("/");
+    // localStorage.setItem("logedIn", true);
     console.log(formControl);
+    signinUser({
+      emailAddress: formControl.email,
+      password: formControl.password,
+    });
+
+    // Cookies.set("access_token", "TEMPORARY TOKEN");
+    // navigate("/dashboard");
   };
 
   const handleCheckboxChange = () => {
     setIsChecked(!isChecked);
   };
+  useEffect(() => {
+    if (isSuccess && data.isSuccess) {
+      console.log("Did log in work i wonder.");
+      console.log(data);
+      Cookies.set("access_token", data.data);
+      navigate("/dashboard");
+    } else if (isSuccess) {
+      console.log("did not work");
+      toast.error(`${data.message}`);
+    }
+  }, [isSuccess]);
 
   return (
     <>
@@ -99,10 +122,12 @@ const Signin = () => {
                 </p>
               </Link>
             </div>
-            <Link to="/dashboard/">
-              {/* <Button value="Sign in" onClick={handleSubmit} /> */}
-              <Button value={t("signin")}></Button>
-            </Link>
+            {/* <Link to="/dashboard/"> */}
+            <button ref={ref} className="button" onClick={handleSubmit}>
+              {!isLoading && t("signin")} {isLoading && <Spinner />}
+            </button>
+
+            {/* </Link> */}
             <p className="signup_content">
               {t("donthaveanaccount")}
               <span onClick={() => navigate("/signup")}>{t("signup")}</span>

@@ -208,6 +208,9 @@ i18n.use(initReactI18next).init({
         finishednotes:
           "I’ve finished adding my notes. Happy for us to review whenever you’re ready!",
         loadmore: "Load More.",
+        resetpassword: "Reset Password",
+        oldpassword: "Old Password",
+        newpassword: "New Password",
       },
     },
     fr: {
@@ -415,6 +418,9 @@ i18n.use(initReactI18next).init({
         finishednotes:
           "J'ai terminé d'ajouter mes notes. Heureux de nous revoir quand vous êtes prêt!",
         loadmore: "Charger plus.",
+        resetpassword: "Réinitialiser le mot de passe",
+        oldpassword: "Ancien mot de passe",
+        newpassword: "Nouveau mot de passe",
       },
     },
   },

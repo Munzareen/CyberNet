@@ -1,16 +1,37 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Comment from "./Comment";
+import DrawerTextArea from "./DrawerTextArea";
 import { useState } from "react";
 import { MyContext } from "../../MyContext";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
-
+import {
+  useViewQuestionCommentQuery,
+  useAddCommentMutation,
+} from "../../store/services/questionService";
 export default function Drawer({ children }) {
   const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
   const { isOpen, setIsOpen } = useContext(MyContext);
-  const { isSupportOpen, setIsSupportOpen } = useContext(MyContext);
   const { t } = useTranslation();
 
+  const [
+    addNewComment, // This is the mutation trigger
+    { isLoading }, // This is the destructured mutation result
+  ] = useAddCommentMutation();
+
+  const {
+    isLoading: isCommentLoading,
+    isSuccess: isCommentSuccess,
+    data: commentData,
+    error: commentError,
+    isError: isCommentError,
+    isFetching: isCommentFetching,
+  } = useViewQuestionCommentQuery(1);
+  useEffect(() => {
+    if (isCommentSuccess) {
+      console.log("isCommentSuccess is true");
+    }
+  }, [isCommentSuccess]);
   return (
     <main
       className={
@@ -62,9 +83,9 @@ export default function Drawer({ children }) {
                       <path
                         d="M11 1L1 11M1 1L11 11"
                         stroke="#667085"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -90,7 +111,7 @@ export default function Drawer({ children }) {
                         </div>
                         <div className="bg-[#F2F4F7] rounded-full">
                           <p className="text-xm font-inter font-medium text-[#3855F2] px-2 py-1">
-                            4 {t("newcomments")}
+                            {isCommentSuccess ? `${commentData.message}` : 0}
                           </p>
                         </div>
                       </div>
@@ -132,8 +153,8 @@ export default function Drawer({ children }) {
                         <path
                           d="M13 2L5.38909 9.13523C5.17838 9.33277 5.17838 9.66723 5.38909 9.86477L13 17"
                           stroke="#667085"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
                         />
                       </svg>
                     </button>
@@ -160,21 +181,27 @@ export default function Drawer({ children }) {
                       <path
                         d="M11 1L1 11M1 1L11 11"
                         stroke="#667085"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
                 </div>
                 <div className="flex flex-col justify-between px-8 gap-10">
                   <div className="flex flex-col flex-grow gap-5 pt-5">
-                    <Comment />
-                    <Comment />
-                    <Comment />
+                    {commentData?.data.map((item, index) => (
+                      <Comment
+                        key={index}
+                        commentHeading={item.commentHeading}
+                        commentDetails={item.commentDetails}
+                        userId={item.userId}
+                      />
+                    ))}
                   </div>
                   <div className="">
-                    <div className="flex flex-col gap-3">
+                    <DrawerTextArea />
+                    {/* <div className="flex flex-col gap-3">
                       <textarea
                         className="border-[#D0D5DD] border font-inter font-medium text-[#475467] text-sm w-full h-20 rounded-lg p-3 outline-none"
                         placeholder={t("entercomment")}
@@ -182,7 +209,7 @@ export default function Drawer({ children }) {
                       <button className="mb-5 py-3 px-6 rounded-2xl bg-[#3855F2] hover:bg-[#536aed] text-white text-sm font-medium font-inter w-24">
                         {t("send")}
                       </button>
-                    </div>
+                    </div> */}
                   </div>
                 </div>
               </>

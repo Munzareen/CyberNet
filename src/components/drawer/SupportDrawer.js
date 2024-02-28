@@ -5,12 +5,20 @@ import { MyContext } from "../../MyContext";
 import { useContext } from "react";
 
 import { useTranslation } from "react-i18next";
+import { useViewQuestionSupportQuery } from "../../store/services/questionService";
 
 export default function SupportDrawer({ children }) {
   const { t } = useTranslation();
   const [viewCommentsFlag, setViewCommentsFlag] = useState(true);
   const { isSupportOpen, setIsSupportOpen } = useContext(MyContext);
-
+  const {
+    isLoading: isSupportLoading,
+    isSuccess: isSupportSuccess,
+    data: supportData,
+    error: supportError,
+    isError: isSupportError,
+    isFetching: isSupportFetching,
+  } = useViewQuestionSupportQuery(1);
   return (
     <main
       className={
@@ -62,9 +70,9 @@ export default function SupportDrawer({ children }) {
                       <path
                         d="M11 1L1 11M1 1L11 11"
                         stroke="#667085"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
@@ -86,7 +94,9 @@ export default function SupportDrawer({ children }) {
                     <div className="">
                       <div className="flex justify-between">
                         <div className="text-base font-inter font-semibold text-[#101828]">
-                          {t("updateversion")}
+                          {supportData
+                            ? supportData.data[0].supportHeading
+                            : t("updateversion")}
                         </div>
                       </div>
                       <div className="font-inter font-medium text-[#475467] text-sm">
@@ -127,8 +137,8 @@ export default function SupportDrawer({ children }) {
                         <path
                           d="M13 2L5.38909 9.13523C5.17838 9.33277 5.17838 9.66723 5.38909 9.86477L13 17"
                           stroke="#667085"
-                          stroke-width="1.5"
-                          stroke-linecap="round"
+                          strokeWidth="1.5"
+                          strokeLinecap="round"
                         />
                       </svg>
                     </button>
@@ -155,16 +165,23 @@ export default function SupportDrawer({ children }) {
                       <path
                         d="M11 1L1 11M1 1L11 11"
                         stroke="#667085"
-                        stroke-width="1.5"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
+                        strokeWidth="1.5"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
                       />
                     </svg>
                   </button>
                 </div>
                 <div className="flex flex-col justify-between px-8 gap-10">
                   <div className="flex flex-col flex-grow gap-5 pt-5">
-                    <SupportComment />
+                    {supportData?.data.map((item, index) => (
+                      <SupportComment
+                        key={index}
+                        supportHeading={item.supportHeading}
+                        supportDetails={item.supportDetails}
+                        userId={item.userId}
+                      />
+                    ))}
                   </div>
                 </div>
               </>

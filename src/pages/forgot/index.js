@@ -74,7 +74,7 @@ const Forgot = () => {
               value={formControl.email}
               onChange={handleChange}
             />
-            <Link to="/dashboard/">
+            <Link to="/reset/">
               {/* <Button value="Sign in" onClick={handleSubmit} /> */}
               <Button value={t("forgot")}></Button>
             </Link>

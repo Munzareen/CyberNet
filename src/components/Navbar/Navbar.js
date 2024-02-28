@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 import Logo from "../icons/logo/Logo";
 import SearchIconbar from "../icons/searchIconBar/SearchIconbar";
 import DashboardIcon from "../icons/navIcons/DashboardIcon";
@@ -15,6 +15,7 @@ import { MyContext } from "../../MyContext";
 import "./Navbar.css";
 import { useContext } from "react";
 import { useTranslation } from "react-i18next";
+import Cookies from "js-cookie";
 
 export default function Navbar() {
   const { t, i18n } = useTranslation();
@@ -24,6 +25,11 @@ export default function Navbar() {
 
   const { setIsOpen } = useContext(MyContext);
   const { setIsSupportOpen } = useContext(MyContext);
+  const navigate = useNavigate();
+  const logOut = () => {
+    Cookies.remove("access_token");
+    navigate("/");
+  };
 
   return (
     <div className="l-main-nav min-h-screen flex flex-col justify-between bg-[#14143E] text-gray-50">
@@ -142,7 +148,9 @@ export default function Navbar() {
                 <div className="text-xs text-gray-400">Lea@untitledui.com</div>
               </div>
             </div>
-            <LogoutIcon></LogoutIcon>
+            <div className="p-2 hover:cursor-pointer" onClick={logOut}>
+              <LogoutIcon></LogoutIcon>
+            </div>
           </div>
         </div>
         <div className="absolute bottom-0 right-8 p-4 flex gap-2 justify-end">
